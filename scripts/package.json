@@ -1,0 +1,9 @@
+{
+  "name": "blind-tender-scripts",
+  "version": "1.0.0",
+  "private": true,
+  "description": "StudioNet deployment, runner probe, and live end-to-end verification for BlindTender.",
+  "dependencies": {
+    "genlayer-js": "1.2.0"
+  }
+}
