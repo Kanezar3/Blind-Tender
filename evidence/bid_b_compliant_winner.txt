@@ -1,0 +1,11 @@
+ENGINEERING QUALIFICATION DOSSIER — GRIDVAULT ENERGY CORP.
+Document Ref: GV-QUAL-2026-8841 | System: GV-MegaCell Liquid-Cooled BESS
+
+1. Verified Usable Capacity
+Independent commissioning data reviewed by DNV confirms that the 48-enclosure GV-MegaCell array delivers 120 MWh of net usable AC energy at 30 MW nominal power output, accounting for auxiliary cooling loads and transformer losses across ambient temperatures from -20C to 45C.
+
+2. Thermal-Runaway Safety Certification
+Full unit-level and installation-level thermal-runaway propagation testing was witnessed and certified by UL Solutions (Certificate #UL-9540A-2026-GV8841, active and in good standing). Induced single-cell thermal failure demonstrated zero flaming propagation to adjacent racks and stayed within deflagration venting thresholds.
+
+3. Cycle-Life Performance Guarantee
+GridVault provides an unconditional 20-year capacity augmentation and warranty schedule supporting 7,200 full charge-discharge cycles to 80% end-of-life state-of-health.

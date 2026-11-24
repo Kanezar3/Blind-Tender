@@ -1,0 +1,11 @@
+TECHNICAL SUBMITTAL MEMO — LOWCOST CELLS LTD.
+Document Ref: LCC-BESS-2026-041 | Platform: EcoPack-110 Utility Container Series
+
+1. Architecture & Energy Delivery
+Our proposed installation comprises 42 factory-assembled 2.5 MWh lithium iron phosphate (LFP) battery racks integrated into modular outdoor enclosures with medium-voltage inverters. Factory acceptance testing conducted at our Shenzhen assembly line confirms 105 MWh of net usable AC energy at the point of interconnection (25 MW continuous 4-hour discharge).
+
+2. Longevity & Degradation Warranty
+Cells are backed by a contractual throughput guarantee covering 6,500 full equivalent charge-discharge cycles before reaching 80% state-of-health under standard 0.25C utility cycling profiles.
+
+3. Fire Safety & Thermal Propagation Qualification
+Individual prismatic cells carry IEC 62619 and UN 38.3 transport approvals. However, unit-level thermal-runaway fire propagation burn testing under UL-9540A has not yet been performed on the EcoPack-110 enclosure; our engineering team has tentatively requested a test chamber slot for Q4, so no UL-9540A safety certification is currently held for this bid.

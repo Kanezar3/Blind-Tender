@@ -1,0 +1,11 @@
+INDEPENDENT ENGINEERING ATTESTATION — APEXSTORAGE SYSTEMS AG
+Document Ref: AX-CERT-2026-9104 | System: ApexGrid-115-Pro Utility Block
+
+1. System Sizing & Grid Output
+The ApexGrid-115-Pro configuration deploys 23 pre-commissioned utility battery skids providing 115 MWh of net usable AC storage at 28 MW continuous output, verified via third-party factory load-bank testing at 100% depth of discharge.
+
+2. Active Safety & Thermal Propagation Compliance
+TUV Rheinland and UL Solutions jointly audited the enclosure fire-suppression and gas-exhaust architecture. Active UL-9540A thermal-runaway safety certification (Ref #UL-9540A-2026-AX9104) is issued and valid for utility-scale outdoor substation deployment.
+
+3. Warranted Cycling Endurance
+The battery modules carry a manufacturer-backed endurance warranty of 6,800 full equivalent cycles at 80% retained usable capacity under daily peak-shaving and frequency-regulation duty.

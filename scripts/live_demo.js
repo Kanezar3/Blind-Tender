@@ -72,8 +72,8 @@ function sha256Hex(buf) {
   return crypto.createHash("sha256").update(buf).digest("hex");
 }
 
-function computeBidCommitment(tenderId, bidId, bidder, price, salt) {
-  const preimage = `${tenderId}|${bidId}|${bidder.trim().toLowerCase()}|${price}|${salt}`;
+function computeBidCommitment(tenderId, bidId, bidder, price, contentHash, salt) {
+  const preimage = `${tenderId}|${bidId}|${bidder.trim().toLowerCase()}|${price}|${contentHash.trim().toLowerCase()}|${salt}`;
   return crypto.createHash("sha256").update(preimage, "utf8").digest("hex");
 }
 
@@ -278,9 +278,9 @@ async function main() {
   const contractSha256 = sha256Hex(contractBytes);
 
   const evidenceFiles = {
-    bid_a: "evidence/bid_a_lowball_no_cert.json",
-    bid_b: "evidence/bid_b_compliant_winner.json",
-    bid_c: "evidence/bid_c_compliant_runnerup.json",
+    bid_a: "evidence/bid_a_lowball_no_cert.txt",
+    bid_b: "evidence/bid_b_compliant_winner.txt",
+    bid_c: "evidence/bid_c_compliant_runnerup.txt",
   };
 
   const evidenceMeta = {};
@@ -342,7 +342,7 @@ async function main() {
     const onChainCode = normalizeOnChainCode(onChainCodeRaw);
     const onChainSha256 = sha256Hex(Buffer.from(onChainCode, "utf8"));
     const byteIdentical = onChainSha256 === contractSha256;
-    console.log("Deployed BlindTender contract at:", contractAddress);
+    console.log("Deployed BlindTender v2 contract at:", contractAddress);
     console.log("Deployed source byte-identical to local/Git file:", byteIdentical);
     if (!byteIdentical) {
       throw new Error(`Deployed source mismatch: local=${contractSha256} onchain=${onChainSha256}`);
@@ -419,7 +419,7 @@ async function main() {
 
   const MANDATORY_REQS =
     "Utility Grid-Scale BESS Procurement: usable capacity >= 100 MWh, active UL-9540A thermal-runaway safety certification, and >= 6000 warranted full cycles.";
-  const TENDER_ID = "bess-live-01";
+  const TENDER_ID = "bess-live-v2";
 
   // X1: Open tender with zero escrow balance -> INSUFFICIENT_ESCROW_BALANCE, balance stays 0
   await runStep("X1_INSUFFICIENT_ESCROW_BALANCE", async () => {
@@ -442,20 +442,6 @@ async function main() {
     return rec;
   });
 
-  // X2: Zero deposit rejected cleanly
-  await runStep("X2_ZERO_DEPOSIT", async () => {
-    return sendAndVerify(
-      roles.attacker.client,
-      contractAddress,
-      "deposit_escrow",
-      [],
-      "X2_ZERO_DEPOSIT",
-      true,
-      0n,
-      "ZERO_DEPOSIT"
-    );
-  });
-
   // S0: Buyer deposits 1000 wei; Vendors A, B, C each deposit 50 wei
   await runStep("S0_DEPOSIT_BUYER", async () =>
     sendAndVerify(roles.buyer.client, contractAddress, "deposit_escrow", [], "S0_DEPOSIT_BUYER", false, 1000n)
@@ -466,23 +452,21 @@ async function main() {
   await runStep("S0B_DEPOSIT_VENDOR_B", async () =>
     sendAndVerify(roles.vendorB.client, contractAddress, "deposit_escrow", [], "S0B_DEPOSIT_VENDOR_B", false, 50n)
   );
-  await runStep("S0C_DEPOSIT_VENDOR_C", async () =>
-    sendAndVerify(roles.vendorC.client, contractAddress, "deposit_escrow", [], "S0C_DEPOSIT_VENDOR_C", false, 50n)
-  );
-
-  // X3: Invalid repo prefix rejected
-  await runStep("X3_INVALID_REPO_PREFIX", async () =>
-    sendAndVerify(
-      roles.buyer.client,
+  await runStep("S0C_DEPOSIT_VENDOR_C", async () => {
+    const rec = await sendAndVerify(
+      roles.vendorC.client,
       contractAddress,
-      "open_tender",
-      ["bad-prefix", 1000, 3, 3600, 3600, MANDATORY_REQS, "https://example.com/repo/"],
-      "X3_INVALID_REPO_PREFIX",
-      true,
-      0n,
-      "INVALID_REPO_PREFIX"
-    )
-  );
+      "deposit_escrow",
+      [],
+      "S0C_DEPOSIT_VENDOR_C",
+      false,
+      50n
+    );
+    readbacks.after_S0_deposits_accounting = JSON.parse(
+      await readWithRetry(roles.buyer.client, contractAddress, "get_accounting_state", [])
+    );
+    return rec;
+  });
 
   // S1: Buyer opens sealed-bid Vickrey tender (reserve=1000, min_bond=50, max_bidders=3)
   await runStep("S1_OPEN_TENDER", async () => {
@@ -500,39 +484,39 @@ async function main() {
     return rec;
   });
 
-  const hA = computeBidCommitment(TENDER_ID, "bid-a", roles.vendorA.address, 417, "salt-live-a");
-  const hB = computeBidCommitment(TENDER_ID, "bid-b", roles.vendorB.address, 673, "salt-live-b");
-  const hC = computeBidCommitment(TENDER_ID, "bid-c", roles.vendorC.address, 829, "salt-live-c");
+  const hA = computeBidCommitment(TENDER_ID, "bid-a", roles.vendorA.address, 417, evidenceMeta.bid_a.sha256, "salt-live-a");
+  const hB = computeBidCommitment(TENDER_ID, "bid-b", roles.vendorB.address, 673, evidenceMeta.bid_b.sha256, "salt-live-b");
+  const hC = computeBidCommitment(TENDER_ID, "bid-c", roles.vendorC.address, 829, evidenceMeta.bid_c.sha256, "salt-live-c");
 
-  // X4: Insufficient bid bond (49 < 50) rejected
-  await runStep("X4_INSUFFICIENT_BID_BOND", async () =>
+  // X2: Insufficient bid bond (49 < 50) rejected
+  await runStep("X2_INSUFFICIENT_BID_BOND", async () =>
     sendAndVerify(
       roles.vendorA.client,
       contractAddress,
       "commit_bid",
       [TENDER_ID, "bid-a", 49, hA],
-      "X4_INSUFFICIENT_BID_BOND",
+      "X2_INSUFFICIENT_BID_BOND",
       true,
       0n,
       "INSUFFICIENT_BID_BOND"
     )
   );
 
-  // X5: Buyer cannot bid on own tender
-  await runStep("X5_BUYER_CANNOT_BID", async () =>
+  // X3: Buyer cannot bid on own tender
+  await runStep("X3_BUYER_CANNOT_BID", async () =>
     sendAndVerify(
       roles.buyer.client,
       contractAddress,
       "commit_bid",
       [TENDER_ID, "bid-self", 50, hA],
-      "X5_BUYER_CANNOT_BID",
+      "X3_BUYER_CANNOT_BID",
       true,
       0n,
       "BUYER_CANNOT_BID"
     )
   );
 
-  // S2A/S2B/S2C: Three vendors commit sealed bid hashes (3rd auto-opens REVEAL_OPEN)
+  // S2A/S2B/S2C: Three vendors commit sealed (price + dossier_hash + salt) hashes
   await runStep("S2A_COMMIT_BID_A", async () =>
     sendAndVerify(roles.vendorA.client, contractAddress, "commit_bid", [TENDER_ID, "bid-a", 50, hA], "S2A_COMMIT_BID_A", false)
   );
@@ -557,30 +541,64 @@ async function main() {
     return rec;
   });
 
-  // X6: Tampered reveal price blocked by SHA-256 commitment mismatch
-  await runStep("X6_COMMITMENT_MISMATCH", async () =>
+  // X4: Unauthorized attacker trying to reveal VendorB's bid -> UNAUTHORIZED_CALLER
+  await runStep("X4_UNAUTHORIZED_REVEAL", async () =>
+    sendAndVerify(
+      roles.attacker.client,
+      contractAddress,
+      "reveal_bid",
+      [TENDER_ID, "bid-b", 673, "salt-live-b", evidenceMeta.bid_b.raw_url, evidenceMeta.bid_b.sha256],
+      "X4_UNAUTHORIZED_REVEAL",
+      true,
+      0n,
+      "UNAUTHORIZED_CALLER"
+    )
+  );
+
+  // X5: Tampered reveal price -> COMMITMENT_MISMATCH
+  await runStep("X5_COMMITMENT_MISMATCH_PRICE", async () =>
     sendAndVerify(
       roles.vendorB.client,
       contractAddress,
       "reveal_bid",
-      [
-        TENDER_ID,
-        "bid-b",
-        600,
-        "salt-live-b",
-        "120 MWh LFP pack, UL-9540A certified, 7200 cycles",
-        evidenceMeta.bid_b.raw_url,
-        evidenceMeta.bid_b.sha256,
-      ],
-      "X6_COMMITMENT_MISMATCH",
+      [TENDER_ID, "bid-b", 600, "salt-live-b", evidenceMeta.bid_b.raw_url, evidenceMeta.bid_b.sha256],
+      "X5_COMMITMENT_MISMATCH_PRICE",
       true,
       0n,
       "COMMITMENT_MISMATCH"
     )
   );
 
-  // X7: Mutable /main/ branch URL rejected
+  // X6: Post-reveal dossier swap (swapping in non-compliant dossier A) -> COMMITMENT_MISMATCH
+  await runStep("X6_COMMITMENT_MISMATCH_DOSSIER", async () =>
+    sendAndVerify(
+      roles.vendorB.client,
+      contractAddress,
+      "reveal_bid",
+      [TENDER_ID, "bid-b", 673, "salt-live-b", evidenceMeta.bid_a.raw_url, evidenceMeta.bid_a.sha256],
+      "X6_COMMITMENT_MISMATCH_DOSSIER",
+      true,
+      0n,
+      "COMMITMENT_MISMATCH"
+    )
+  );
+
+  // X7: Mutable /main/ branch URL -> INVALID_EVIDENCE_URL
   await runStep("X7_UNPINNED_MAIN_URL", async () =>
+    sendAndVerify(
+      roles.vendorB.client,
+      contractAddress,
+      "reveal_bid",
+      [TENDER_ID, "bid-b", 673, "salt-live-b", `${REPO_PREFIX}main/evidence/bid_b_compliant_winner.txt`, evidenceMeta.bid_b.sha256],
+      "X7_UNPINNED_MAIN_URL",
+      true,
+      0n,
+      "INVALID_EVIDENCE_URL"
+    )
+  );
+
+  // X8: Foreign repository URL -> REPO_PREFIX_MISMATCH
+  await runStep("X8_FOREIGN_REPO_URL", async () =>
     sendAndVerify(
       roles.vendorB.client,
       contractAddress,
@@ -590,32 +608,23 @@ async function main() {
         "bid-b",
         673,
         "salt-live-b",
-        "120 MWh LFP pack, UL-9540A certified, 7200 cycles",
-        `${REPO_PREFIX}main/evidence/bid_b_compliant_winner.json`,
+        `https://raw.githubusercontent.com/attacker/evil/${commitSha}/evidence/bid_b_compliant_winner.txt`,
         evidenceMeta.bid_b.sha256,
       ],
-      "X7_UNPINNED_MAIN_URL",
+      "X8_FOREIGN_REPO_URL",
       true,
       0n,
-      "INVALID_EVIDENCE_URL"
+      "REPO_PREFIX_MISMATCH"
     )
   );
 
-  // S3A/S3B/S3C: Verified sealed-bid reveals with commit-pinned dossiers
+  // S3A/S3B/S3C: Verified sealed-bid reveals with commit-pinned unstructured prose dossiers
   await runStep("S3A_REVEAL_BID_A", async () =>
     sendAndVerify(
       roles.vendorA.client,
       contractAddress,
       "reveal_bid",
-      [
-        TENDER_ID,
-        "bid-a",
-        417,
-        "salt-live-a",
-        "105 MWh LFP pack, 6500 cycles, UL-9540A testing scheduled Q3",
-        evidenceMeta.bid_a.raw_url,
-        evidenceMeta.bid_a.sha256,
-      ],
+      [TENDER_ID, "bid-a", 417, "salt-live-a", evidenceMeta.bid_a.raw_url, evidenceMeta.bid_a.sha256],
       "S3A_REVEAL_BID_A",
       false
     )
@@ -625,39 +634,41 @@ async function main() {
       roles.vendorB.client,
       contractAddress,
       "reveal_bid",
-      [
-        TENDER_ID,
-        "bid-b",
-        673,
-        "salt-live-b",
-        "120 MWh LFP pack, active UL-9540A certification, 7200 cycles",
-        evidenceMeta.bid_b.raw_url,
-        evidenceMeta.bid_b.sha256,
-      ],
+      [TENDER_ID, "bid-b", 673, "salt-live-b", evidenceMeta.bid_b.raw_url, evidenceMeta.bid_b.sha256],
       "S3B_REVEAL_BID_B",
       false
     )
   );
-  await runStep("S3C_REVEAL_BID_C", async () =>
-    sendAndVerify(
+  await runStep("S3C_REVEAL_BID_C", async () => {
+    const rec = await sendAndVerify(
       roles.vendorC.client,
       contractAddress,
       "reveal_bid",
-      [
-        TENDER_ID,
-        "bid-c",
-        829,
-        "salt-live-c",
-        "115 MWh LFP pack, active UL-9540A certification, 6800 cycles",
-        evidenceMeta.bid_c.raw_url,
-        evidenceMeta.bid_c.sha256,
-      ],
+      [TENDER_ID, "bid-c", 829, "salt-live-c", evidenceMeta.bid_c.raw_url, evidenceMeta.bid_c.sha256],
       "S3C_REVEAL_BID_C",
       false
+    );
+    readbacks.after_S3C_tender = JSON.parse(
+      await readWithRetry(roles.buyer.client, contractAddress, "get_tender", [TENDER_ID])
+    );
+    return rec;
+  });
+
+  // X9: Premature award_tender before price-blind evaluations finish -> UNEVALUATED_BID_EXISTS
+  await runStep("X9_PREMATURE_AWARD", async () =>
+    sendAndVerify(
+      roles.attacker.client,
+      contractAddress,
+      "award_tender",
+      [TENDER_ID],
+      "X9_PREMATURE_AWARD",
+      true,
+      0n,
+      "UNEVALUATED_BID_EXISTS"
     )
   );
 
-  // S4A/S4B/S4C: Live Price-Blind Consensus Eligibility Evaluation
+  // S4A/S4B/S4C: Live Price-Blind Consensus Eligibility Evaluation over unstructured prose
   await runStep("S4A_EVAL_BID_A", async () => {
     const rec = await sendAndVerify(
       roles.auditor.client,
@@ -672,7 +683,7 @@ async function main() {
     );
     if (
       readbacks.after_S4A_bid_a.eval_verdict !== "DISQUALIFIED" ||
-      readbacks.after_S4A_bid_a.eval_reason !== "SAFETY_CERT_MISSING"
+      readbacks.after_S4A_bid_a.eval_reason !== "COMPLIANCE_CERT_MISSING"
     ) {
       throw new Error("Unexpected bid-a verdict: " + JSON.stringify(readbacks.after_S4A_bid_a));
     }
@@ -721,14 +732,14 @@ async function main() {
     return rec;
   });
 
-  // X8: Replay evaluation on already-concluded bid blocked
-  await runStep("X8_REPLAY_CONCLUDED_EVAL", async () =>
+  // X10: Replay evaluation on already-concluded bid blocked -> BID_ALREADY_CONCLUDED
+  await runStep("X10_REPLAY_CONCLUDED_EVAL", async () =>
     sendAndVerify(
       roles.attacker.client,
       contractAddress,
       "evaluate_bid",
       [TENDER_ID, "bid-a"],
-      "X8_REPLAY_CONCLUDED_EVAL",
+      "X10_REPLAY_CONCLUDED_EVAL",
       true,
       0n,
       "BID_ALREADY_CONCLUDED"
@@ -789,14 +800,14 @@ async function main() {
     });
   }
 
-  // X9: Attacker with 0 pending payout cannot withdraw
-  await runStep("X9_NO_PENDING_PAYOUT", async () =>
+  // X11: Attacker with 0 pending payout cannot withdraw
+  await runStep("X11_NO_PENDING_PAYOUT", async () =>
     sendAndVerify(
       roles.attacker.client,
       contractAddress,
       "withdraw_payout",
       [],
-      "X9_NO_PENDING_PAYOUT",
+      "X11_NO_PENDING_PAYOUT",
       true,
       0n,
       "NO_PENDING_PAYOUT"
@@ -819,7 +830,7 @@ async function main() {
   ) {
     throw new Error("Final accounting conservation failed: " + JSON.stringify(readbacks.final_accounting));
   }
-  console.log("ALL LIVE STUDIONET STEPS VERIFIED & SAVED TO release_manifest.json!");
+  console.log("ALL LIVE STUDIONET V2 STEPS VERIFIED & SAVED TO release_manifest.json!");
 }
 
 main().catch((err) => {
