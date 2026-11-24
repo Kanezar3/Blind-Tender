@@ -103,6 +103,17 @@ async function waitForFinalized(client, hash, label) {
   throw new Error(`[${label}] Timeout waiting for FINALIZED on ${hash}`);
 }
 
+async function rpcCall(method, params) {
+  const resp = await fetch("https://studio.genlayer.com/api", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ jsonrpc: "2.0", id: 1, method, params }),
+  });
+  const data = await resp.json();
+  if (data.error) throw new Error(`RPC ${method} error: ${JSON.stringify(data.error)}`);
+  return data.result;
+}
+
 async function main() {
   const pk = generatePrivateKey();
   const account = createAccount(pk);
@@ -111,8 +122,13 @@ async function main() {
   console.log("Probe account:", account.address);
   console.log("Chain ID:", await client.getChainId());
 
+  await rpcCall("sim_fundAccount", [account.address, 10000000000000000]);
+  const feeConfig = await rpcCall("sim_getFeeConfig", []);
+  const txFees = feeConfig?.enabled ? feeConfig.defaultFees : undefined;
+  console.log("StudioNet fees enabled:", Boolean(feeConfig?.enabled), "feeValue:", txFees?.feeValue || "0");
+
   console.log("Deploying RunnerProbe...");
-  const deployHash = await client.deployContract({ code: PROBE_CODE, args: [] });
+  const deployHash = await client.deployContract({ code: PROBE_CODE, args: [], fees: txFees });
   const deployRes = await waitForFinalized(client, deployHash, "PROBE_DEPLOY");
   if (!["SUCCESS", "FINISHED_WITH_RETURN"].includes(deployRes.execResult)) {
     throw new Error("Probe deploy did not succeed: " + JSON.stringify(deployRes.lr));
@@ -127,6 +143,7 @@ async function main() {
     functionName: "ping",
     args: ["probe_ok"],
     value: 0n,
+    fees: txFees,
   });
   const writeRes = await waitForFinalized(client, writeHash, "PROBE_WRITE");
   if (!["SUCCESS", "FINISHED_WITH_RETURN"].includes(writeRes.execResult)) {

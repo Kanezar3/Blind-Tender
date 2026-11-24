@@ -4,42 +4,42 @@
   "network": "studionet",
   "chain_id": 61999,
   "rpc_url": "https://studio.genlayer.com/api",
-  "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75",
-  "explorer_contract_url": "https://explorer-studio.genlayer.com/address/0xfE39e345c7497B913E6143f629dDfFDc2E26be75",
+  "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4",
+  "explorer_contract_url": "https://explorer-studio.genlayer.com/address/0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4",
   "repo_url": "https://github.com/Kanezar3/Blind-Tender",
-  "commit_sha": "2fbb47405ace9afc0eda74f86c53a0fa48b3f207",
-  "contract_blob_sha": "1522f7fb773d54da6cb6a4e5bec0fb0cd2b6b2d9",
-  "contract_sha256": "e7df82e6a2fff3fd70e942ff249d30d4de4c02a61494dabcc78c008892c06e13",
-  "on_chain_code_sha256": "e7df82e6a2fff3fd70e942ff249d30d4de4c02a61494dabcc78c008892c06e13",
+  "commit_sha": "780698d213d0673c148210a0a3766574bf3e6eb2",
+  "contract_blob_sha": "05911307c505e4c9b1920e132f8e929e3d43984b",
+  "contract_sha256": "ce9f9d9a4341bc23feee367eb0e09345ab5519ae450b510d08a856ac098830c5",
+  "on_chain_code_sha256": "ce9f9d9a4341bc23feee367eb0e09345ab5519ae450b510d08a856ac098830c5",
   "deployed_source_byte_identical": true,
-  "pinned_contract_url": "https://github.com/Kanezar3/Blind-Tender/blob/2fbb47405ace9afc0eda74f86c53a0fa48b3f207/contracts/blind_tender.py",
-  "pinned_contract_raw_url": "https://raw.githubusercontent.com/Kanezar3/Blind-Tender/2fbb47405ace9afc0eda74f86c53a0fa48b3f207/contracts/blind_tender.py",
+  "pinned_contract_url": "https://github.com/Kanezar3/Blind-Tender/blob/780698d213d0673c148210a0a3766574bf3e6eb2/contracts/blind_tender.py",
+  "pinned_contract_raw_url": "https://raw.githubusercontent.com/Kanezar3/Blind-Tender/780698d213d0673c148210a0a3766574bf3e6eb2/contracts/blind_tender.py",
   "runner": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6",
   "runner_probe": {
     "network": "studionet",
     "chain_id": 61999,
     "runner": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6",
-    "probe_address": "0xE70401177ff80dd2b9F1A02A263416c49B9b395A",
-    "deploy_tx": "0xc6a8db414ddb4c117ccf553a5c0afc533e92b4dcd5cd1de70437a881b1f08c15",
+    "probe_address": "0xA42C3c77331FCBa0D13a2e31FAe099deB29ADB31",
+    "deploy_tx": "0x6c33650810b07e5e219e8cd198883492b24cf3edc038c2c28db0f0044d8bb5cb",
     "deploy_status": "FINALIZED",
     "deploy_leader_exec": "SUCCESS",
-    "write_tx": "0x32a405cf90845f764a6a3dcf450ca5f30cacd02c53f106fb254949bbaccf182c",
+    "write_tx": "0x2d6855b047889d4a56025003a97e53a11912ea58929a438b5aad5610988d82c1",
     "write_status": "FINALIZED",
     "write_leader_exec": "SUCCESS",
     "read_val": "probe_ok"
   },
   "toolchain": {
     "node": "v24.12.0",
-    "genlayer-js": "1.2.0"
+    "genlayer-js": "2.0.0"
   },
   "constructor_args": [],
   "deploy_tx": {
     "step": "DEPLOY",
-    "tx_hash": "0x39281b5eda7223f3b27a7e39ec25e6c633ecc268367715733fc3785c3a307975",
-    "explorer_url": "https://explorer-studio.genlayer.com/tx/0x39281b5eda7223f3b27a7e39ec25e6c633ecc268367715733fc3785c3a307975",
+    "tx_hash": "0x10736e2eee43d6a72c3bdc7b5592900ea39461b7394813cd3627c7d90ad571cd",
+    "explorer_url": "https://explorer-studio.genlayer.com/tx/0x10736e2eee43d6a72c3bdc7b5592900ea39461b7394813cd3627c7d90ad571cd",
     "accepted_seen": true,
     "observed_statuses": [
-      "PROPOSING",
+      "PENDING",
       "ACCEPTED",
       "FINALIZED"
     ],
@@ -49,51 +49,50 @@
     "return_or_error": "null",
     "stderr": null,
     "votes": {
-      "0x19a02f95418A6c76091CDA37C4fc542CA82805c9": "agree",
-      "0x21e4F7ba6Ec0fbf70C019fbc0F9A797c3ed1F969": "agree",
-      "0x23A15A452F19D1B616276fedC5B8B51d69082959": "agree",
-      "0x534af64FFB6796Bc69aBf4C26c50788F1fFAfe56": "agree",
-      "0xE74a9088aD4d6dBf3C8cABcC0B91072d2a8c8afa": "agree"
+      "0x5744305308D62592B7De585e1999c4Ea51E03C29": "agree",
+      "0x6DC61b906F74F44612c5545b0b79486133B3556d": "idle",
+      "0x725Ab89db6A9DD886Ba71Bc5E63a01070C325bE3": "agree",
+      "0x813890bC5bEDEB4F5437570962379F04738F18Cb": "agree",
+      "0xee46B9Dc4c860149B1d140840284e5374854e746": "agree"
     },
     "expected_failure": false,
-    "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
+    "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
   },
   "accounts": {
-    "buyer": "0x84340C997bD9DCFd503C297D2006E9D6F77d919c",
-    "vendorA": "0x9b359Dcd3e287AcE392B92882D670c597a691Dfc",
-    "vendorB": "0x3FCb423f07F2e8F0Bd5DA5191ed76F853b8897cA",
-    "vendorC": "0xfeE22564898fA802A96aD86AA6062e79e6Db0C9f",
-    "auditor": "0xf949b7F1e2b59e9a87394607ebAA5b41B73332cD",
-    "attacker": "0xbAf5a015f33C8B4C761415A9B490d200f9886EbF"
+    "buyer": "0x82aF55c240f251B7A77D8d2e08F021B9fB0EB7C8",
+    "vendorA": "0x5b5bEa56F39828a79560b1663588B0301df065Dd",
+    "vendorB": "0xd20a86325b417266A091C19b4c59Fa86CBcB532E",
+    "vendorC": "0x868635FBF3B49529b308381b5076401Ba98B00Db",
+    "auditor": "0x2aAbEE21483c11fD430E77910e039254D00FdFfE",
+    "attacker": "0xBC1b49bfE7f4bF981fDa3e97D066D09D4537FA28"
   },
   "evidence_fixtures": {
     "bid_a": {
-      "path": "evidence/bid_a_lowball_no_cert.json",
-      "bytes": 716,
-      "sha256": "2fbe97eddcf2b5e3161e411626ea6768592e519e6d2555e77cb1ba7f72bde659",
-      "raw_url": "https://raw.githubusercontent.com/Kanezar3/Blind-Tender/2fbb47405ace9afc0eda74f86c53a0fa48b3f207/evidence/bid_a_lowball_no_cert.json"
+      "path": "evidence/bid_a_lowball_no_cert.txt",
+      "bytes": 1162,
+      "sha256": "55d9926c6e42cef63eb73969342bb2eb61bdf260274c6e351c94f6b20e4bfbc2",
+      "raw_url": "https://raw.githubusercontent.com/Kanezar3/Blind-Tender/780698d213d0673c148210a0a3766574bf3e6eb2/evidence/bid_a_lowball_no_cert.txt"
     },
     "bid_b": {
-      "path": "evidence/bid_b_compliant_winner.json",
-      "bytes": 680,
-      "sha256": "bcdd83642b763d0a5090075a41dfe72ce106ba482d2ba7eb6f35effc8339a31b",
-      "raw_url": "https://raw.githubusercontent.com/Kanezar3/Blind-Tender/2fbb47405ace9afc0eda74f86c53a0fa48b3f207/evidence/bid_b_compliant_winner.json"
+      "path": "evidence/bid_b_compliant_winner.txt",
+      "bytes": 1015,
+      "sha256": "c5e88ffa6efefb2a80917b2d6d46654013176d4f949e81d0d2165978f9cc6c50",
+      "raw_url": "https://raw.githubusercontent.com/Kanezar3/Blind-Tender/780698d213d0673c148210a0a3766574bf3e6eb2/evidence/bid_b_compliant_winner.txt"
     },
     "bid_c": {
-      "path": "evidence/bid_c_compliant_runnerup.json",
-      "bytes": 675,
-      "sha256": "b82bff35ecc3ad458211fc56d8065be3efe128870af628d249721229809f5b00",
-      "raw_url": "https://raw.githubusercontent.com/Kanezar3/Blind-Tender/2fbb47405ace9afc0eda74f86c53a0fa48b3f207/evidence/bid_c_compliant_runnerup.json"
+      "path": "evidence/bid_c_compliant_runnerup.txt",
+      "bytes": 931,
+      "sha256": "eb35d18e5d2bbc4c2f526f75d815fd76eaee094333a302393dbdf6c778ef48bf",
+      "raw_url": "https://raw.githubusercontent.com/Kanezar3/Blind-Tender/780698d213d0673c148210a0a3766574bf3e6eb2/evidence/bid_c_compliant_runnerup.txt"
     }
   },
   "transactions": [
     {
       "step": "X1_INSUFFICIENT_ESCROW_BALANCE",
-      "tx_hash": "0x5cc248d69a8ea7bf4122820284cb4419ecb7fd2ba4d74fa35367bd135ad6b192",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x5cc248d69a8ea7bf4122820284cb4419ecb7fd2ba4d74fa35367bd135ad6b192",
+      "tx_hash": "0xccde67f06140a0e712c31082da3a224c1d3dae400930eb25d51eb3b1e5ba7a7e",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xccde67f06140a0e712c31082da3a224c1d3dae400930eb25d51eb3b1e5ba7a7e",
       "accepted_seen": true,
       "observed_statuses": [
-        "PENDING",
         "COMMITTING",
         "ACCEPTED",
         "FINALIZED"
@@ -104,49 +103,21 @@
       "return_or_error": "INSUFFICIENT_ESCROW_BALANCE",
       "stderr": null,
       "votes": {
-        "0x4eeaD269a60bB89c98a23c1BCd0bd101CafD90E0": "agree",
-        "0x534af64FFB6796Bc69aBf4C26c50788F1fFAfe56": "agree",
-        "0x5744305308D62592B7De585e1999c4Ea51E03C29": "agree",
-        "0x62718FbDf0509A398aA525C152D60c1F7A9d33D3": "idle",
-        "0x6fe9DE3d0adc76D6416A13CD8107aaE49A3CF98F": "idle"
+        "0x1B490819e040562a5fb40CD64B1c70D4419c38d1": "agree",
+        "0x21e4F7ba6Ec0fbf70C019fbc0F9A797c3ed1F969": "agree",
+        "0x4eeaD269a60bB89c98a23c1BCd0bd101CafD90E0": "idle",
+        "0x6fe9DE3d0adc76D6416A13CD8107aaE49A3CF98F": "agree",
+        "0x88E148Da14d45c5a5DD2DB25E776eBCBCe0Df539": "agree"
       },
       "expected_failure": true,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
-    },
-    {
-      "step": "X2_ZERO_DEPOSIT",
-      "tx_hash": "0x36dc965851cad8ce4ad0ba9a228c5af067125eab3210a50bfd5b83c489814c25",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x36dc965851cad8ce4ad0ba9a228c5af067125eab3210a50bfd5b83c489814c25",
-      "accepted_seen": true,
-      "observed_statuses": [
-        "PROPOSING",
-        "COMMITTING",
-        "ACCEPTED",
-        "FINALIZED"
-      ],
-      "final_status": "FINALIZED",
-      "consensus_result": "MAJORITY_AGREE",
-      "leader_execution_result": "ERROR",
-      "return_or_error": "ZERO_DEPOSIT",
-      "stderr": null,
-      "votes": {
-        "0x23A15A452F19D1B616276fedC5B8B51d69082959": "idle",
-        "0x5e880d85a70De78dDEf86236d57c42e73F560615": "agree",
-        "0x62718FbDf0509A398aA525C152D60c1F7A9d33D3": "agree",
-        "0x88E148Da14d45c5a5DD2DB25E776eBCBCe0Df539": "agree",
-        "0xe358f855C96d8E7243836cf986eb037175B9467e": "idle"
-      },
-      "expected_failure": true,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
     },
     {
       "step": "S0_DEPOSIT_BUYER",
-      "tx_hash": "0xaa497b84d6e4ce73c5751a2524e53dee50ea7cc664b7c5c44950febade109efd",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xaa497b84d6e4ce73c5751a2524e53dee50ea7cc664b7c5c44950febade109efd",
+      "tx_hash": "0x1aaa75873f1b79b35ed5d60b325aae9e88e3a90b694c9536a74abb589568f15c",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x1aaa75873f1b79b35ed5d60b325aae9e88e3a90b694c9536a74abb589568f15c",
       "accepted_seen": true,
       "observed_statuses": [
-        "PENDING",
-        "PROPOSING",
         "COMMITTING",
         "ACCEPTED",
         "FINALIZED"
@@ -157,46 +128,45 @@
       "return_or_error": "1000",
       "stderr": null,
       "votes": {
-        "0x19a02f95418A6c76091CDA37C4fc542CA82805c9": "agree",
-        "0x21e4F7ba6Ec0fbf70C019fbc0F9A797c3ed1F969": "idle",
-        "0x4eeaD269a60bB89c98a23c1BCd0bd101CafD90E0": "idle",
-        "0x813890bC5bEDEB4F5437570962379F04738F18Cb": "agree",
-        "0xee46B9Dc4c860149B1d140840284e5374854e746": "agree"
-      },
-      "expected_failure": false,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
-    },
-    {
-      "step": "S0A_DEPOSIT_VENDOR_A",
-      "tx_hash": "0xa575f90f3abe15bdd07cf0ea6651714001da39c66d9c5739cc3ede24c92dcf9d",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xa575f90f3abe15bdd07cf0ea6651714001da39c66d9c5739cc3ede24c92dcf9d",
-      "accepted_seen": true,
-      "observed_statuses": [
-        "PENDING",
-        "PROPOSING",
-        "COMMITTING",
-        "ACCEPTED",
-        "FINALIZED"
-      ],
-      "final_status": "FINALIZED",
-      "consensus_result": "MAJORITY_AGREE",
-      "leader_execution_result": "SUCCESS",
-      "return_or_error": "50",
-      "stderr": null,
-      "votes": {
-        "0x23A15A452F19D1B616276fedC5B8B51d69082959": "agree",
-        "0x240d2d7c8DF220110c26cfFFC532479319Cca0dC": "idle",
-        "0x4eeaD269a60bB89c98a23c1BCd0bd101CafD90E0": "idle",
-        "0x534af64FFB6796Bc69aBf4C26c50788F1fFAfe56": "agree",
+        "0x4eeaD269a60bB89c98a23c1BCd0bd101CafD90E0": "agree",
+        "0x5744305308D62592B7De585e1999c4Ea51E03C29": "idle",
+        "0x6DC61b906F74F44612c5545b0b79486133B3556d": "agree",
+        "0x6fe9DE3d0adc76D6416A13CD8107aaE49A3CF98F": "agree",
         "0x813890bC5bEDEB4F5437570962379F04738F18Cb": "agree"
       },
       "expected_failure": false,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
+    },
+    {
+      "step": "S0A_DEPOSIT_VENDOR_A",
+      "tx_hash": "0x7815a6ea07bd8a6de1afd7cd9a3ef9704999b88f9023aeb90b23a05e8a842632",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x7815a6ea07bd8a6de1afd7cd9a3ef9704999b88f9023aeb90b23a05e8a842632",
+      "accepted_seen": true,
+      "observed_statuses": [
+        "PENDING",
+        "PROPOSING",
+        "ACCEPTED",
+        "FINALIZED"
+      ],
+      "final_status": "FINALIZED",
+      "consensus_result": "MAJORITY_AGREE",
+      "leader_execution_result": "SUCCESS",
+      "return_or_error": "50",
+      "stderr": null,
+      "votes": {
+        "0x21e4F7ba6Ec0fbf70C019fbc0F9A797c3ed1F969": "idle",
+        "0x5744305308D62592B7De585e1999c4Ea51E03C29": "agree",
+        "0x5e880d85a70De78dDEf86236d57c42e73F560615": "agree",
+        "0x6fe9DE3d0adc76D6416A13CD8107aaE49A3CF98F": "agree",
+        "0x88E148Da14d45c5a5DD2DB25E776eBCBCe0Df539": "agree"
+      },
+      "expected_failure": false,
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
     },
     {
       "step": "S0B_DEPOSIT_VENDOR_B",
-      "tx_hash": "0x8f5884cee3a8dff9a76295a7b7001f2906f93e89eef59efb83c4d453bfdb2b59",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x8f5884cee3a8dff9a76295a7b7001f2906f93e89eef59efb83c4d453bfdb2b59",
+      "tx_hash": "0x4a8519657f498f6a60d5cb5f72d685b3220101bf8c495ee056c67174e5feeda2",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x4a8519657f498f6a60d5cb5f72d685b3220101bf8c495ee056c67174e5feeda2",
       "accepted_seen": true,
       "observed_statuses": [
         "PENDING",
@@ -210,23 +180,22 @@
       "return_or_error": "50",
       "stderr": null,
       "votes": {
-        "0x23A15A452F19D1B616276fedC5B8B51d69082959": "agree",
-        "0x4eeaD269a60bB89c98a23c1BCd0bd101CafD90E0": "idle",
-        "0x534af64FFB6796Bc69aBf4C26c50788F1fFAfe56": "agree",
-        "0x725Ab89db6A9DD886Ba71Bc5E63a01070C325bE3": "agree",
-        "0xee46B9Dc4c860149B1d140840284e5374854e746": "agree"
+        "0x240d2d7c8DF220110c26cfFFC532479319Cca0dC": "agree",
+        "0x5e880d85a70De78dDEf86236d57c42e73F560615": "idle",
+        "0x813890bC5bEDEB4F5437570962379F04738F18Cb": "agree",
+        "0xBE58b43DF1d991e054F743Cc5571dD7029F3B888": "agree",
+        "0xe358f855C96d8E7243836cf986eb037175B9467e": "agree"
       },
       "expected_failure": false,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
     },
     {
       "step": "S0C_DEPOSIT_VENDOR_C",
-      "tx_hash": "0x8a0bc486eb53508c05853ddf1c8c7d24b4f6efd9a181c4e27b05dcae93809cda",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x8a0bc486eb53508c05853ddf1c8c7d24b4f6efd9a181c4e27b05dcae93809cda",
+      "tx_hash": "0xa2c1b0dfe94f6c9bb066fdd4febb164ef2694f917ebcbace0e0006ac064bdf37",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xa2c1b0dfe94f6c9bb066fdd4febb164ef2694f917ebcbace0e0006ac064bdf37",
       "accepted_seen": true,
       "observed_statuses": [
-        "PROPOSING",
-        "COMMITTING",
+        "PENDING",
         "ACCEPTED",
         "FINALIZED"
       ],
@@ -236,76 +205,48 @@
       "return_or_error": "50",
       "stderr": null,
       "votes": {
-        "0x19a02f95418A6c76091CDA37C4fc542CA82805c9": "idle",
-        "0x21e4F7ba6Ec0fbf70C019fbc0F9A797c3ed1F969": "agree",
-        "0x22Eda431B7fBC1216baE3b077a78c973a8719c58": "agree",
-        "0x5e880d85a70De78dDEf86236d57c42e73F560615": "agree",
-        "0x813890bC5bEDEB4F5437570962379F04738F18Cb": "idle"
+        "0x62718FbDf0509A398aA525C152D60c1F7A9d33D3": "idle",
+        "0x6DC61b906F74F44612c5545b0b79486133B3556d": "agree",
+        "0x813890bC5bEDEB4F5437570962379F04738F18Cb": "agree",
+        "0xBE58b43DF1d991e054F743Cc5571dD7029F3B888": "agree",
+        "0xee46B9Dc4c860149B1d140840284e5374854e746": "agree"
       },
       "expected_failure": false,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
     },
     {
-      "step": "X3_INVALID_REPO_PREFIX",
-      "tx_hash": "0x0d0a6f7687672547a1c5262f3bf444eb18fe95f5280d1107240ab74244a45f08",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x0d0a6f7687672547a1c5262f3bf444eb18fe95f5280d1107240ab74244a45f08",
+      "step": "S1_OPEN_TENDER",
+      "tx_hash": "0x726e7759225b46cba7d1d2ba3d4c7af915a32bf98838bef16d3bde522dcdb727",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x726e7759225b46cba7d1d2ba3d4c7af915a32bf98838bef16d3bde522dcdb727",
       "accepted_seen": true,
       "observed_statuses": [
-        "PROPOSING",
+        "PENDING",
         "COMMITTING",
         "ACCEPTED",
         "FINALIZED"
       ],
       "final_status": "FINALIZED",
       "consensus_result": "MAJORITY_AGREE",
-      "leader_execution_result": "ERROR",
-      "return_or_error": "INVALID_REPO_PREFIX",
-      "stderr": null,
-      "votes": {
-        "0x23A15A452F19D1B616276fedC5B8B51d69082959": "agree",
-        "0x4eeaD269a60bB89c98a23c1BCd0bd101CafD90E0": "idle",
-        "0x5744305308D62592B7De585e1999c4Ea51E03C29": "idle",
-        "0x6fe9DE3d0adc76D6416A13CD8107aaE49A3CF98F": "agree",
-        "0xE74a9088aD4d6dBf3C8cABcC0B91072d2a8c8afa": "agree"
-      },
-      "expected_failure": true,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
-    },
-    {
-      "step": "S1_OPEN_TENDER",
-      "tx_hash": "0xd0d31fcf8ae323c305efde30c21647ef2d437cab57bbdb98ad17927ebc8bd857",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xd0d31fcf8ae323c305efde30c21647ef2d437cab57bbdb98ad17927ebc8bd857",
-      "accepted_seen": true,
-      "observed_statuses": [
-        "PENDING",
-        "PROPOSING",
-        "REVEALING",
-        "ACCEPTED",
-        "FINALIZED"
-      ],
-      "final_status": "FINALIZED",
-      "consensus_result": "MAJORITY_AGREE",
       "leader_execution_result": "SUCCESS",
-      "return_or_error": "TENDER_OPENED:bess-live-01:MIN_BOND_50",
+      "return_or_error": "TENDER_OPENED:bess-live-v2:MIN_BOND_50",
       "stderr": null,
       "votes": {
-        "0x21e4F7ba6Ec0fbf70C019fbc0F9A797c3ed1F969": "agree",
         "0x5e880d85a70De78dDEf86236d57c42e73F560615": "idle",
         "0x6DC61b906F74F44612c5545b0b79486133B3556d": "agree",
-        "0x725Ab89db6A9DD886Ba71Bc5E63a01070C325bE3": "agree",
-        "0xBE58b43DF1d991e054F743Cc5571dD7029F3B888": "idle"
+        "0x6fe9DE3d0adc76D6416A13CD8107aaE49A3CF98F": "idle",
+        "0xE74a9088aD4d6dBf3C8cABcC0B91072d2a8c8afa": "agree",
+        "0xee46B9Dc4c860149B1d140840284e5374854e746": "agree"
       },
       "expected_failure": false,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
     },
     {
-      "step": "X4_INSUFFICIENT_BID_BOND",
-      "tx_hash": "0x47058da12e53adb2fe2e2721305ab0e5a0231218793a3afa7a83f8a0d7706b62",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x47058da12e53adb2fe2e2721305ab0e5a0231218793a3afa7a83f8a0d7706b62",
+      "step": "X2_INSUFFICIENT_BID_BOND",
+      "tx_hash": "0x876a246fd4ea84ec41da8c4d05860903064eb67e2429f6559697935743fed42d",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x876a246fd4ea84ec41da8c4d05860903064eb67e2429f6559697935743fed42d",
       "accepted_seen": true,
       "observed_statuses": [
         "PENDING",
-        "PROPOSING",
         "COMMITTING",
         "ACCEPTED",
         "FINALIZED"
@@ -316,23 +257,21 @@
       "return_or_error": "INSUFFICIENT_BID_BOND",
       "stderr": null,
       "votes": {
-        "0x19a02f95418A6c76091CDA37C4fc542CA82805c9": "agree",
-        "0x5744305308D62592B7De585e1999c4Ea51E03C29": "agree",
-        "0x88E148Da14d45c5a5DD2DB25E776eBCBCe0Df539": "idle",
-        "0xe358f855C96d8E7243836cf986eb037175B9467e": "idle",
-        "0xee46B9Dc4c860149B1d140840284e5374854e746": "agree"
+        "0x19a02f95418A6c76091CDA37C4fc542CA82805c9": "idle",
+        "0x5e880d85a70De78dDEf86236d57c42e73F560615": "idle",
+        "0x725Ab89db6A9DD886Ba71Bc5E63a01070C325bE3": "agree",
+        "0xBE58b43DF1d991e054F743Cc5571dD7029F3B888": "agree",
+        "0xE74a9088aD4d6dBf3C8cABcC0B91072d2a8c8afa": "agree"
       },
       "expected_failure": true,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
     },
     {
-      "step": "X5_BUYER_CANNOT_BID",
-      "tx_hash": "0x4c5ff0ec04109d0707eb9e2b040b1ff1e2c02e3ad5958e5fb195432b3631d6df",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x4c5ff0ec04109d0707eb9e2b040b1ff1e2c02e3ad5958e5fb195432b3631d6df",
+      "step": "X3_BUYER_CANNOT_BID",
+      "tx_hash": "0x2eb0b1eecb36edb86fb1732f404cef7468b307292aba903e87407a57c479ad2e",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x2eb0b1eecb36edb86fb1732f404cef7468b307292aba903e87407a57c479ad2e",
       "accepted_seen": true,
       "observed_statuses": [
-        "PROPOSING",
-        "COMMITTING",
         "ACCEPTED",
         "FINALIZED"
       ],
@@ -343,74 +282,46 @@
       "stderr": null,
       "votes": {
         "0x19a02f95418A6c76091CDA37C4fc542CA82805c9": "agree",
+        "0x240d2d7c8DF220110c26cfFFC532479319Cca0dC": "idle",
         "0x4eeaD269a60bB89c98a23c1BCd0bd101CafD90E0": "agree",
-        "0x5744305308D62592B7De585e1999c4Ea51E03C29": "idle",
-        "0x725Ab89db6A9DD886Ba71Bc5E63a01070C325bE3": "agree",
-        "0x88E148Da14d45c5a5DD2DB25E776eBCBCe0Df539": "idle"
+        "0x88E148Da14d45c5a5DD2DB25E776eBCBCe0Df539": "idle",
+        "0xBE58b43DF1d991e054F743Cc5571dD7029F3B888": "agree"
       },
       "expected_failure": true,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
     },
     {
       "step": "S2A_COMMIT_BID_A",
-      "tx_hash": "0x88af9fc1afaa0a094684bc6bdd098e552201ccba2549ec55b82d82ebd0a05dae",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x88af9fc1afaa0a094684bc6bdd098e552201ccba2549ec55b82d82ebd0a05dae",
-      "accepted_seen": true,
-      "observed_statuses": [
-        "PROPOSING",
-        "COMMITTING",
-        "ACCEPTED",
-        "FINALIZED"
-      ],
-      "final_status": "FINALIZED",
-      "consensus_result": "MAJORITY_AGREE",
-      "leader_execution_result": "SUCCESS",
-      "return_or_error": "BID_COMMITTED:bess-live-01:bid-a:COMMIT_OPEN",
-      "stderr": null,
-      "votes": {
-        "0x21e4F7ba6Ec0fbf70C019fbc0F9A797c3ed1F969": "agree",
-        "0x22Eda431B7fBC1216baE3b077a78c973a8719c58": "agree",
-        "0x5e880d85a70De78dDEf86236d57c42e73F560615": "idle",
-        "0x88E148Da14d45c5a5DD2DB25E776eBCBCe0Df539": "idle",
-        "0xee46B9Dc4c860149B1d140840284e5374854e746": "agree"
-      },
-      "expected_failure": false,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
-    },
-    {
-      "step": "S2B_COMMIT_BID_B",
-      "tx_hash": "0x36d0e76aed67932554f98bcc5ddb7ab5d02b1c791eb59abe6be89e454568a210",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x36d0e76aed67932554f98bcc5ddb7ab5d02b1c791eb59abe6be89e454568a210",
+      "tx_hash": "0xc5e60055dd6197f106c0d691b275259ff99a689a9b6c171ebdda6f83684d28c4",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xc5e60055dd6197f106c0d691b275259ff99a689a9b6c171ebdda6f83684d28c4",
       "accepted_seen": true,
       "observed_statuses": [
         "PENDING",
         "PROPOSING",
-        "COMMITTING",
         "ACCEPTED",
         "FINALIZED"
       ],
       "final_status": "FINALIZED",
       "consensus_result": "MAJORITY_AGREE",
       "leader_execution_result": "SUCCESS",
-      "return_or_error": "BID_COMMITTED:bess-live-01:bid-b:COMMIT_OPEN",
+      "return_or_error": "BID_COMMITTED:bess-live-v2:bid-a:COMMIT_OPEN",
       "stderr": null,
       "votes": {
         "0x19a02f95418A6c76091CDA37C4fc542CA82805c9": "agree",
-        "0x21e4F7ba6Ec0fbf70C019fbc0F9A797c3ed1F969": "idle",
-        "0x5744305308D62592B7De585e1999c4Ea51E03C29": "agree",
-        "0x6fe9DE3d0adc76D6416A13CD8107aaE49A3CF98F": "idle",
-        "0x813890bC5bEDEB4F5437570962379F04738F18Cb": "agree"
+        "0x4eeaD269a60bB89c98a23c1BCd0bd101CafD90E0": "agree",
+        "0x534af64FFB6796Bc69aBf4C26c50788F1fFAfe56": "agree",
+        "0x813890bC5bEDEB4F5437570962379F04738F18Cb": "agree",
+        "0xE74a9088aD4d6dBf3C8cABcC0B91072d2a8c8afa": "idle"
       },
       "expected_failure": false,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
     },
     {
-      "step": "S2C_COMMIT_BID_C",
-      "tx_hash": "0x959441ac097be0f5b3160c01f10dbe7e1971c9f3fd84352ed78c6b72af333ad7",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x959441ac097be0f5b3160c01f10dbe7e1971c9f3fd84352ed78c6b72af333ad7",
+      "step": "S2B_COMMIT_BID_B",
+      "tx_hash": "0x6f44def5a8b246a6f9ff329c1d936bf0d75dbd7fa9a73e8f98aaf01a05ead28f",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x6f44def5a8b246a6f9ff329c1d936bf0d75dbd7fa9a73e8f98aaf01a05ead28f",
       "accepted_seen": true,
       "observed_statuses": [
-        "PROPOSING",
         "COMMITTING",
         "ACCEPTED",
         "FINALIZED"
@@ -418,26 +329,74 @@
       "final_status": "FINALIZED",
       "consensus_result": "MAJORITY_AGREE",
       "leader_execution_result": "SUCCESS",
-      "return_or_error": "BID_COMMITTED:bess-live-01:bid-c:REVEAL_OPEN",
+      "return_or_error": "BID_COMMITTED:bess-live-v2:bid-b:COMMIT_OPEN",
       "stderr": null,
       "votes": {
-        "0x21e4F7ba6Ec0fbf70C019fbc0F9A797c3ed1F969": "agree",
-        "0x240d2d7c8DF220110c26cfFFC532479319Cca0dC": "idle",
-        "0x4eeaD269a60bB89c98a23c1BCd0bd101CafD90E0": "idle",
-        "0x62718FbDf0509A398aA525C152D60c1F7A9d33D3": "agree",
-        "0x813890bC5bEDEB4F5437570962379F04738F18Cb": "agree"
+        "0x22Eda431B7fBC1216baE3b077a78c973a8719c58": "agree",
+        "0x6DC61b906F74F44612c5545b0b79486133B3556d": "agree",
+        "0x88E148Da14d45c5a5DD2DB25E776eBCBCe0Df539": "idle",
+        "0xBE58b43DF1d991e054F743Cc5571dD7029F3B888": "agree",
+        "0xee46B9Dc4c860149B1d140840284e5374854e746": "agree"
       },
       "expected_failure": false,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
     },
     {
-      "step": "X6_COMMITMENT_MISMATCH",
-      "tx_hash": "0x063e23e81902b437d70af78d3adea248fb5d42afcc86028e38382705885c056d",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x063e23e81902b437d70af78d3adea248fb5d42afcc86028e38382705885c056d",
+      "step": "S2C_COMMIT_BID_C",
+      "tx_hash": "0x2b1db4370bd9a3294306f0a2c5f5c4d91953acfd45516c90378ab3ce95efd258",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x2b1db4370bd9a3294306f0a2c5f5c4d91953acfd45516c90378ab3ce95efd258",
+      "accepted_seen": true,
+      "observed_statuses": [
+        "ACCEPTED",
+        "FINALIZED"
+      ],
+      "final_status": "FINALIZED",
+      "consensus_result": "MAJORITY_AGREE",
+      "leader_execution_result": "SUCCESS",
+      "return_or_error": "BID_COMMITTED:bess-live-v2:bid-c:REVEAL_OPEN",
+      "stderr": null,
+      "votes": {
+        "0x22Eda431B7fBC1216baE3b077a78c973a8719c58": "agree",
+        "0x240d2d7c8DF220110c26cfFFC532479319Cca0dC": "idle",
+        "0x5e880d85a70De78dDEf86236d57c42e73F560615": "agree",
+        "0xBE58b43DF1d991e054F743Cc5571dD7029F3B888": "agree",
+        "0xe358f855C96d8E7243836cf986eb037175B9467e": "agree"
+      },
+      "expected_failure": false,
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
+    },
+    {
+      "step": "X4_UNAUTHORIZED_REVEAL",
+      "tx_hash": "0x19d205e3f3195d7e5fbc4fe11e4a0ae5c1e0ae6a4ec54c54f0c1b8e24fec6bfd",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x19d205e3f3195d7e5fbc4fe11e4a0ae5c1e0ae6a4ec54c54f0c1b8e24fec6bfd",
+      "accepted_seen": true,
+      "observed_statuses": [
+        "PENDING",
+        "ACCEPTED",
+        "FINALIZED"
+      ],
+      "final_status": "FINALIZED",
+      "consensus_result": "MAJORITY_AGREE",
+      "leader_execution_result": "ERROR",
+      "return_or_error": "UNAUTHORIZED_CALLER",
+      "stderr": null,
+      "votes": {
+        "0x19a02f95418A6c76091CDA37C4fc542CA82805c9": "idle",
+        "0x21e4F7ba6Ec0fbf70C019fbc0F9A797c3ed1F969": "agree",
+        "0x240d2d7c8DF220110c26cfFFC532479319Cca0dC": "agree",
+        "0x6DC61b906F74F44612c5545b0b79486133B3556d": "idle",
+        "0x813890bC5bEDEB4F5437570962379F04738F18Cb": "agree"
+      },
+      "expected_failure": true,
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
+    },
+    {
+      "step": "X5_COMMITMENT_MISMATCH_PRICE",
+      "tx_hash": "0x954f7114fd0c3cfa459414121cb5454573337e3a3bb822d1b6b47496cadf99cc",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x954f7114fd0c3cfa459414121cb5454573337e3a3bb822d1b6b47496cadf99cc",
       "accepted_seen": true,
       "observed_statuses": [
         "PROPOSING",
-        "COMMITTING",
         "ACCEPTED",
         "FINALIZED"
       ],
@@ -447,23 +406,46 @@
       "return_or_error": "COMMITMENT_MISMATCH",
       "stderr": null,
       "votes": {
-        "0x4eeaD269a60bB89c98a23c1BCd0bd101CafD90E0": "agree",
-        "0x5744305308D62592B7De585e1999c4Ea51E03C29": "agree",
-        "0x725Ab89db6A9DD886Ba71Bc5E63a01070C325bE3": "agree",
+        "0x240d2d7c8DF220110c26cfFFC532479319Cca0dC": "agree",
+        "0x534af64FFB6796Bc69aBf4C26c50788F1fFAfe56": "agree",
+        "0x5e880d85a70De78dDEf86236d57c42e73F560615": "agree",
         "0x813890bC5bEDEB4F5437570962379F04738F18Cb": "agree",
         "0x88E148Da14d45c5a5DD2DB25E776eBCBCe0Df539": "idle"
       },
       "expected_failure": true,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
+    },
+    {
+      "step": "X6_COMMITMENT_MISMATCH_DOSSIER",
+      "tx_hash": "0xd4aee976d79a1f3474b928bb3f24a8a3a08745d17cec246f14a7d7e263a22e62",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xd4aee976d79a1f3474b928bb3f24a8a3a08745d17cec246f14a7d7e263a22e62",
+      "accepted_seen": true,
+      "observed_statuses": [
+        "ACCEPTED",
+        "FINALIZED"
+      ],
+      "final_status": "FINALIZED",
+      "consensus_result": "MAJORITY_AGREE",
+      "leader_execution_result": "ERROR",
+      "return_or_error": "COMMITMENT_MISMATCH",
+      "stderr": null,
+      "votes": {
+        "0x21e4F7ba6Ec0fbf70C019fbc0F9A797c3ed1F969": "idle",
+        "0x5744305308D62592B7De585e1999c4Ea51E03C29": "agree",
+        "0x6fe9DE3d0adc76D6416A13CD8107aaE49A3CF98F": "idle",
+        "0x813890bC5bEDEB4F5437570962379F04738F18Cb": "agree",
+        "0xE74a9088aD4d6dBf3C8cABcC0B91072d2a8c8afa": "agree"
+      },
+      "expected_failure": true,
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
     },
     {
       "step": "X7_UNPINNED_MAIN_URL",
-      "tx_hash": "0x04e070447024a3d8b1460663ccfc92ae603573d8556b2fc0b75aa62e90b97ad7",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x04e070447024a3d8b1460663ccfc92ae603573d8556b2fc0b75aa62e90b97ad7",
+      "tx_hash": "0xb08f6bb3537f4e90c749bf454ad68179f240d6da9b187389ee67227287a68706",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xb08f6bb3537f4e90c749bf454ad68179f240d6da9b187389ee67227287a68706",
       "accepted_seen": true,
       "observed_statuses": [
         "PROPOSING",
-        "COMMITTING",
         "ACCEPTED",
         "FINALIZED"
       ],
@@ -473,151 +455,143 @@
       "return_or_error": "INVALID_EVIDENCE_URL",
       "stderr": null,
       "votes": {
-        "0x5744305308D62592B7De585e1999c4Ea51E03C29": "agree",
+        "0x240d2d7c8DF220110c26cfFFC532479319Cca0dC": "agree",
+        "0x4eeaD269a60bB89c98a23c1BCd0bd101CafD90E0": "agree",
         "0x5e880d85a70De78dDEf86236d57c42e73F560615": "agree",
-        "0x6DC61b906F74F44612c5545b0b79486133B3556d": "idle",
-        "0x88E148Da14d45c5a5DD2DB25E776eBCBCe0Df539": "agree",
-        "0xee46B9Dc4c860149B1d140840284e5374854e746": "agree"
+        "0xBE58b43DF1d991e054F743Cc5571dD7029F3B888": "agree",
+        "0xee46B9Dc4c860149B1d140840284e5374854e746": "idle"
       },
       "expected_failure": true,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
+    },
+    {
+      "step": "X8_FOREIGN_REPO_URL",
+      "tx_hash": "0x9301559184af2346c391545ca5729ce0aaee6bbaacd3df63dddf44309f7eba1c",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x9301559184af2346c391545ca5729ce0aaee6bbaacd3df63dddf44309f7eba1c",
+      "accepted_seen": true,
+      "observed_statuses": [
+        "PROPOSING",
+        "ACCEPTED",
+        "FINALIZED"
+      ],
+      "final_status": "FINALIZED",
+      "consensus_result": "MAJORITY_AGREE",
+      "leader_execution_result": "ERROR",
+      "return_or_error": "REPO_PREFIX_MISMATCH",
+      "stderr": null,
+      "votes": {
+        "0x240d2d7c8DF220110c26cfFFC532479319Cca0dC": "agree",
+        "0x62718FbDf0509A398aA525C152D60c1F7A9d33D3": "agree",
+        "0x813890bC5bEDEB4F5437570962379F04738F18Cb": "agree",
+        "0xBE58b43DF1d991e054F743Cc5571dD7029F3B888": "agree",
+        "0xee46B9Dc4c860149B1d140840284e5374854e746": "idle"
+      },
+      "expected_failure": true,
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
     },
     {
       "step": "S3A_REVEAL_BID_A",
-      "tx_hash": "0x5e74fe27c8d26cf9d615ab13e9bf8f7e7fddb4644b105bb37714eae62f17f54b",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x5e74fe27c8d26cf9d615ab13e9bf8f7e7fddb4644b105bb37714eae62f17f54b",
+      "tx_hash": "0x62ceed73f72cd440fdb25bc93c2074f73ec5972aaf081f9307f00d1e6029489c",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x62ceed73f72cd440fdb25bc93c2074f73ec5972aaf081f9307f00d1e6029489c",
       "accepted_seen": true,
       "observed_statuses": [
         "PENDING",
-        "PROPOSING",
         "COMMITTING",
-        "ACCEPTED",
         "FINALIZED"
       ],
       "final_status": "FINALIZED",
       "consensus_result": "MAJORITY_AGREE",
       "leader_execution_result": "SUCCESS",
-      "return_or_error": "BID_REVEALED:bess-live-01:bid-a:PRICE_417",
+      "return_or_error": "BID_REVEALED:bess-live-v2:bid-a:PRICE_417",
       "stderr": null,
       "votes": {
-        "0x534af64FFB6796Bc69aBf4C26c50788F1fFAfe56": "idle",
-        "0x5744305308D62592B7De585e1999c4Ea51E03C29": "agree",
-        "0x5e880d85a70De78dDEf86236d57c42e73F560615": "agree",
-        "0x725Ab89db6A9DD886Ba71Bc5E63a01070C325bE3": "agree",
-        "0xBE58b43DF1d991e054F743Cc5571dD7029F3B888": "agree"
+        "0x23A15A452F19D1B616276fedC5B8B51d69082959": "agree",
+        "0x6DC61b906F74F44612c5545b0b79486133B3556d": "agree",
+        "0xBE58b43DF1d991e054F743Cc5571dD7029F3B888": "agree",
+        "0xe358f855C96d8E7243836cf986eb037175B9467e": "idle",
+        "0xee46B9Dc4c860149B1d140840284e5374854e746": "agree"
       },
       "expected_failure": false,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
     },
     {
       "step": "S3B_REVEAL_BID_B",
-      "tx_hash": "0x07fc31c7b170b42010b796d4b500c7d194728cf206c9b8b629bb00aadc6a0904",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x07fc31c7b170b42010b796d4b500c7d194728cf206c9b8b629bb00aadc6a0904",
+      "tx_hash": "0x976be02a7b9fcca60588e2cb134946430c212bcdc1b5cbda1387f535646f4940",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x976be02a7b9fcca60588e2cb134946430c212bcdc1b5cbda1387f535646f4940",
       "accepted_seen": true,
       "observed_statuses": [
         "PENDING",
-        "PROPOSING",
-        "COMMITTING",
         "ACCEPTED",
         "FINALIZED"
       ],
       "final_status": "FINALIZED",
       "consensus_result": "MAJORITY_AGREE",
       "leader_execution_result": "SUCCESS",
-      "return_or_error": "BID_REVEALED:bess-live-01:bid-b:PRICE_673",
+      "return_or_error": "BID_REVEALED:bess-live-v2:bid-b:PRICE_673",
       "stderr": null,
       "votes": {
-        "0x1B490819e040562a5fb40CD64B1c70D4419c38d1": "agree",
-        "0x4eeaD269a60bB89c98a23c1BCd0bd101CafD90E0": "agree",
-        "0x534af64FFB6796Bc69aBf4C26c50788F1fFAfe56": "agree",
-        "0x62718FbDf0509A398aA525C152D60c1F7A9d33D3": "idle",
-        "0x813890bC5bEDEB4F5437570962379F04738F18Cb": "idle"
+        "0x1B490819e040562a5fb40CD64B1c70D4419c38d1": "idle",
+        "0x813890bC5bEDEB4F5437570962379F04738F18Cb": "idle",
+        "0xE74a9088aD4d6dBf3C8cABcC0B91072d2a8c8afa": "agree",
+        "0xe358f855C96d8E7243836cf986eb037175B9467e": "agree",
+        "0xee46B9Dc4c860149B1d140840284e5374854e746": "agree"
       },
       "expected_failure": false,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
     },
     {
       "step": "S3C_REVEAL_BID_C",
-      "tx_hash": "0x8ee44100dd6498cbe2b48e7e913ae507f9228c6a21b865eec77f0de78572a9c1",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x8ee44100dd6498cbe2b48e7e913ae507f9228c6a21b865eec77f0de78572a9c1",
+      "tx_hash": "0xa011ec05da7e3c230d42b32d266f82542d6d4f44b22e933795f8ee90086e5b34",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xa011ec05da7e3c230d42b32d266f82542d6d4f44b22e933795f8ee90086e5b34",
       "accepted_seen": true,
       "observed_statuses": [
-        "PROPOSING",
-        "COMMITTING",
         "ACCEPTED",
         "FINALIZED"
       ],
       "final_status": "FINALIZED",
       "consensus_result": "MAJORITY_AGREE",
       "leader_execution_result": "SUCCESS",
-      "return_or_error": "BID_REVEALED:bess-live-01:bid-c:PRICE_829",
-      "stderr": null,
-      "votes": {
-        "0x19a02f95418A6c76091CDA37C4fc542CA82805c9": "idle",
-        "0x23A15A452F19D1B616276fedC5B8B51d69082959": "agree",
-        "0x725Ab89db6A9DD886Ba71Bc5E63a01070C325bE3": "agree",
-        "0x813890bC5bEDEB4F5437570962379F04738F18Cb": "agree",
-        "0x88E148Da14d45c5a5DD2DB25E776eBCBCe0Df539": "agree"
-      },
-      "expected_failure": false,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
-    },
-    {
-      "step": "S4A_EVAL_BID_A",
-      "tx_hash": "0xb12678ac62e85a97c69cc67716f017d83eea588d0279a87bcd7c2146448486a0",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xb12678ac62e85a97c69cc67716f017d83eea588d0279a87bcd7c2146448486a0",
-      "accepted_seen": true,
-      "observed_statuses": [
-        "PROPOSING",
-        "COMMITTING",
-        "ACCEPTED",
-        "FINALIZED"
-      ],
-      "final_status": "FINALIZED",
-      "consensus_result": "MAJORITY_AGREE",
-      "leader_execution_result": "SUCCESS",
-      "return_or_error": "EVALUATED:bess-live-01:bid-a:DISQUALIFIED:SAFETY_CERT_MISSING",
+      "return_or_error": "BID_REVEALED:bess-live-v2:bid-c:PRICE_829",
       "stderr": null,
       "votes": {
         "0x19a02f95418A6c76091CDA37C4fc542CA82805c9": "agree",
         "0x21e4F7ba6Ec0fbf70C019fbc0F9A797c3ed1F969": "idle",
-        "0x23A15A452F19D1B616276fedC5B8B51d69082959": "agree",
-        "0x6DC61b906F74F44612c5545b0b79486133B3556d": "idle",
-        "0x88E148Da14d45c5a5DD2DB25E776eBCBCe0Df539": "agree"
+        "0x62718FbDf0509A398aA525C152D60c1F7A9d33D3": "agree",
+        "0x813890bC5bEDEB4F5437570962379F04738F18Cb": "idle",
+        "0xee46B9Dc4c860149B1d140840284e5374854e746": "agree"
       },
       "expected_failure": false,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
     },
     {
-      "step": "S4B_EVAL_BID_B",
-      "tx_hash": "0xb0ac2fc1243f83d048b38936ec995f7fbe2ed9b41f1c962e858967d8b23f6f49",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xb0ac2fc1243f83d048b38936ec995f7fbe2ed9b41f1c962e858967d8b23f6f49",
+      "step": "X9_PREMATURE_AWARD",
+      "tx_hash": "0x86d38f4cfff981bee04f5d681f97aa62f04c5a7156625c342aefe0e39f2bca30",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x86d38f4cfff981bee04f5d681f97aa62f04c5a7156625c342aefe0e39f2bca30",
       "accepted_seen": true,
       "observed_statuses": [
-        "PROPOSING",
-        "COMMITTING",
+        "PENDING",
         "ACCEPTED",
         "FINALIZED"
       ],
       "final_status": "FINALIZED",
       "consensus_result": "MAJORITY_AGREE",
-      "leader_execution_result": "SUCCESS",
-      "return_or_error": "EVALUATED:bess-live-01:bid-b:ELIGIBLE:ALL_REQUIREMENTS_MET",
+      "leader_execution_result": "ERROR",
+      "return_or_error": "UNEVALUATED_BID_EXISTS",
       "stderr": null,
       "votes": {
-        "0x22Eda431B7fBC1216baE3b077a78c973a8719c58": "agree",
-        "0x5744305308D62592B7De585e1999c4Ea51E03C29": "idle",
-        "0x5e880d85a70De78dDEf86236d57c42e73F560615": "agree",
-        "0x6fe9DE3d0adc76D6416A13CD8107aaE49A3CF98F": "agree",
-        "0x725Ab89db6A9DD886Ba71Bc5E63a01070C325bE3": "idle"
+        "0x23A15A452F19D1B616276fedC5B8B51d69082959": "agree",
+        "0x4eeaD269a60bB89c98a23c1BCd0bd101CafD90E0": "agree",
+        "0x62718FbDf0509A398aA525C152D60c1F7A9d33D3": "idle",
+        "0x725Ab89db6A9DD886Ba71Bc5E63a01070C325bE3": "idle",
+        "0xBE58b43DF1d991e054F743Cc5571dD7029F3B888": "agree"
       },
-      "expected_failure": false,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
+      "expected_failure": true,
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
     },
     {
-      "step": "S4C_EVAL_BID_C",
-      "tx_hash": "0xf18225658387e2f662fa478885fb4575397b24e120f7ae447b15f419c798f0e9",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xf18225658387e2f662fa478885fb4575397b24e120f7ae447b15f419c798f0e9",
+      "step": "S4A_EVAL_BID_A",
+      "tx_hash": "0xbf097299382277a736849f2ad38e710a60ea558c84de64332d3b7b27af4b0b57",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xbf097299382277a736849f2ad38e710a60ea558c84de64332d3b7b27af4b0b57",
       "accepted_seen": true,
       "observed_statuses": [
         "PENDING",
@@ -629,25 +603,75 @@
       "final_status": "FINALIZED",
       "consensus_result": "MAJORITY_AGREE",
       "leader_execution_result": "SUCCESS",
-      "return_or_error": "EVALUATED:bess-live-01:bid-c:ELIGIBLE:ALL_REQUIREMENTS_MET",
+      "return_or_error": "EVALUATED:bess-live-v2:bid-a:DISQUALIFIED:COMPLIANCE_CERT_MISSING",
       "stderr": null,
       "votes": {
-        "0x19a02f95418A6c76091CDA37C4fc542CA82805c9": "agree",
-        "0x21e4F7ba6Ec0fbf70C019fbc0F9A797c3ed1F969": "agree",
-        "0x22Eda431B7fBC1216baE3b077a78c973a8719c58": "idle",
-        "0x23A15A452F19D1B616276fedC5B8B51d69082959": "agree",
-        "0x725Ab89db6A9DD886Ba71Bc5E63a01070C325bE3": "idle"
+        "0x5e880d85a70De78dDEf86236d57c42e73F560615": "agree",
+        "0x6fe9DE3d0adc76D6416A13CD8107aaE49A3CF98F": "agree",
+        "0x813890bC5bEDEB4F5437570962379F04738F18Cb": "idle",
+        "0x88E148Da14d45c5a5DD2DB25E776eBCBCe0Df539": "idle",
+        "0xBE58b43DF1d991e054F743Cc5571dD7029F3B888": "agree"
       },
       "expected_failure": false,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
     },
     {
-      "step": "X8_REPLAY_CONCLUDED_EVAL",
-      "tx_hash": "0x804b8ca1cb1abaeb0c5b8e183a3aae680cff5679ce4076f3058a01c791f6c8a1",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x804b8ca1cb1abaeb0c5b8e183a3aae680cff5679ce4076f3058a01c791f6c8a1",
+      "step": "S4B_EVAL_BID_B",
+      "tx_hash": "0x66a0a3cb914cd173a82084beafb0bed1108f4eacc7ba260f7d8fc8e85724c9e6",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x66a0a3cb914cd173a82084beafb0bed1108f4eacc7ba260f7d8fc8e85724c9e6",
       "accepted_seen": true,
       "observed_statuses": [
-        "PROPOSING",
+        "PENDING",
+        "ACCEPTED",
+        "FINALIZED"
+      ],
+      "final_status": "FINALIZED",
+      "consensus_result": "MAJORITY_AGREE",
+      "leader_execution_result": "SUCCESS",
+      "return_or_error": "EVALUATED:bess-live-v2:bid-b:ELIGIBLE:ALL_REQUIREMENTS_MET",
+      "stderr": null,
+      "votes": {
+        "0x21e4F7ba6Ec0fbf70C019fbc0F9A797c3ed1F969": "idle",
+        "0x23A15A452F19D1B616276fedC5B8B51d69082959": "agree",
+        "0x88E148Da14d45c5a5DD2DB25E776eBCBCe0Df539": "idle",
+        "0xe358f855C96d8E7243836cf986eb037175B9467e": "agree",
+        "0xee46B9Dc4c860149B1d140840284e5374854e746": "agree"
+      },
+      "expected_failure": false,
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
+    },
+    {
+      "step": "S4C_EVAL_BID_C",
+      "tx_hash": "0xe8d4433b5c1c4a561392a523bd615accaa49d83fd936212bebc90585f1a19ae7",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xe8d4433b5c1c4a561392a523bd615accaa49d83fd936212bebc90585f1a19ae7",
+      "accepted_seen": true,
+      "observed_statuses": [
+        "COMMITTING",
+        "ACCEPTED",
+        "FINALIZED"
+      ],
+      "final_status": "FINALIZED",
+      "consensus_result": "MAJORITY_AGREE",
+      "leader_execution_result": "SUCCESS",
+      "return_or_error": "EVALUATED:bess-live-v2:bid-c:ELIGIBLE:ALL_REQUIREMENTS_MET",
+      "stderr": null,
+      "votes": {
+        "0x19a02f95418A6c76091CDA37C4fc542CA82805c9": "idle",
+        "0x5744305308D62592B7De585e1999c4Ea51E03C29": "agree",
+        "0x6fe9DE3d0adc76D6416A13CD8107aaE49A3CF98F": "agree",
+        "0xE74a9088aD4d6dBf3C8cABcC0B91072d2a8c8afa": "idle",
+        "0xee46B9Dc4c860149B1d140840284e5374854e746": "agree"
+      },
+      "expected_failure": false,
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
+    },
+    {
+      "step": "X10_REPLAY_CONCLUDED_EVAL",
+      "tx_hash": "0xb7e9b5d827a516135ab1c30426c6daece7eb89fcdccbe8e84e8803dcdf43a71f",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xb7e9b5d827a516135ab1c30426c6daece7eb89fcdccbe8e84e8803dcdf43a71f",
+      "accepted_seen": true,
+      "observed_statuses": [
+        "PENDING",
         "COMMITTING",
         "ACCEPTED",
         "FINALIZED"
@@ -658,51 +682,48 @@
       "return_or_error": "BID_ALREADY_CONCLUDED",
       "stderr": null,
       "votes": {
-        "0x22Eda431B7fBC1216baE3b077a78c973a8719c58": "idle",
-        "0x5e880d85a70De78dDEf86236d57c42e73F560615": "idle",
-        "0x62718FbDf0509A398aA525C152D60c1F7A9d33D3": "agree",
-        "0x813890bC5bEDEB4F5437570962379F04738F18Cb": "agree",
-        "0x88E148Da14d45c5a5DD2DB25E776eBCBCe0Df539": "agree"
+        "0x21e4F7ba6Ec0fbf70C019fbc0F9A797c3ed1F969": "idle",
+        "0x23A15A452F19D1B616276fedC5B8B51d69082959": "agree",
+        "0x240d2d7c8DF220110c26cfFFC532479319Cca0dC": "agree",
+        "0x534af64FFB6796Bc69aBf4C26c50788F1fFAfe56": "agree",
+        "0x6DC61b906F74F44612c5545b0b79486133B3556d": "agree"
       },
       "expected_failure": true,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
     },
     {
       "step": "S5_AWARD_TENDER",
-      "tx_hash": "0x9b5cb5a63915374d6d75e4e26ea5f0bd4731ace40ef5552b4fdacf5617d45910",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x9b5cb5a63915374d6d75e4e26ea5f0bd4731ace40ef5552b4fdacf5617d45910",
+      "tx_hash": "0x457faa4d254fcb801d285870667e8825633943fd02b10f037d900a66e68f8496",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x457faa4d254fcb801d285870667e8825633943fd02b10f037d900a66e68f8496",
       "accepted_seen": true,
       "observed_statuses": [
         "PENDING",
-        "PROPOSING",
-        "COMMITTING",
         "ACCEPTED",
         "FINALIZED"
       ],
       "final_status": "FINALIZED",
       "consensus_result": "MAJORITY_AGREE",
       "leader_execution_result": "SUCCESS",
-      "return_or_error": "AWARDED:bess-live-01:bid-b:PRICE_829",
+      "return_or_error": "AWARDED:bess-live-v2:bid-b:PRICE_829",
       "stderr": null,
       "votes": {
-        "0x1B490819e040562a5fb40CD64B1c70D4419c38d1": "idle",
-        "0x23A15A452F19D1B616276fedC5B8B51d69082959": "idle",
-        "0x6DC61b906F74F44612c5545b0b79486133B3556d": "agree",
+        "0x240d2d7c8DF220110c26cfFFC532479319Cca0dC": "agree",
+        "0x534af64FFB6796Bc69aBf4C26c50788F1fFAfe56": "agree",
+        "0x5e880d85a70De78dDEf86236d57c42e73F560615": "idle",
         "0x725Ab89db6A9DD886Ba71Bc5E63a01070C325bE3": "agree",
-        "0x88E148Da14d45c5a5DD2DB25E776eBCBCe0Df539": "agree"
+        "0xBE58b43DF1d991e054F743Cc5571dD7029F3B888": "agree"
       },
       "expected_failure": false,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
     },
     {
       "step": "S6A_WITHDRAW_VENDOR_B",
-      "tx_hash": "0x54718ab086b13f42038563034e3eb77b681775b5f470f2b6ba8bd59f29c415f9",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x54718ab086b13f42038563034e3eb77b681775b5f470f2b6ba8bd59f29c415f9",
+      "tx_hash": "0x6b6be911f9752fffd8032bb75da4e1fbc8491ab190f8cfe469e69dce453325d5",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x6b6be911f9752fffd8032bb75da4e1fbc8491ab190f8cfe469e69dce453325d5",
       "accepted_seen": true,
       "observed_statuses": [
         "PENDING",
         "PROPOSING",
-        "COMMITTING",
         "ACCEPTED",
         "FINALIZED"
       ],
@@ -712,23 +733,23 @@
       "return_or_error": "879",
       "stderr": null,
       "votes": {
+        "0x21e4F7ba6Ec0fbf70C019fbc0F9A797c3ed1F969": "agree",
         "0x22Eda431B7fBC1216baE3b077a78c973a8719c58": "agree",
-        "0x6fe9DE3d0adc76D6416A13CD8107aaE49A3CF98F": "agree",
-        "0x88E148Da14d45c5a5DD2DB25E776eBCBCe0Df539": "agree",
-        "0xBE58b43DF1d991e054F743Cc5571dD7029F3B888": "agree",
-        "0xee46B9Dc4c860149B1d140840284e5374854e746": "idle"
+        "0x5e880d85a70De78dDEf86236d57c42e73F560615": "agree",
+        "0x6fe9DE3d0adc76D6416A13CD8107aaE49A3CF98F": "idle",
+        "0xBE58b43DF1d991e054F743Cc5571dD7029F3B888": "idle"
       },
       "expected_failure": false,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
     },
     {
       "step": "S6B_WITHDRAW_BUYER",
-      "tx_hash": "0xae68d39dec2dc236104d260fab163479b2d96f916944cff7c82ccd1d7b9894ed",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xae68d39dec2dc236104d260fab163479b2d96f916944cff7c82ccd1d7b9894ed",
+      "tx_hash": "0x5424f0aa2aa48c922a86e58a35923bbc58e2440c6f428d58e81e4c7bb8e29a58",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x5424f0aa2aa48c922a86e58a35923bbc58e2440c6f428d58e81e4c7bb8e29a58",
       "accepted_seen": true,
       "observed_statuses": [
-        "PROPOSING",
-        "COMMITTING",
+        "PENDING",
+        "REVEALING",
         "ACCEPTED",
         "FINALIZED"
       ],
@@ -738,22 +759,21 @@
       "return_or_error": "171",
       "stderr": null,
       "votes": {
-        "0x1B490819e040562a5fb40CD64B1c70D4419c38d1": "agree",
-        "0x21e4F7ba6Ec0fbf70C019fbc0F9A797c3ed1F969": "agree",
-        "0x23A15A452F19D1B616276fedC5B8B51d69082959": "idle",
-        "0x4eeaD269a60bB89c98a23c1BCd0bd101CafD90E0": "idle",
-        "0xe358f855C96d8E7243836cf986eb037175B9467e": "agree"
+        "0x19a02f95418A6c76091CDA37C4fc542CA82805c9": "agree",
+        "0x5e880d85a70De78dDEf86236d57c42e73F560615": "idle",
+        "0x6DC61b906F74F44612c5545b0b79486133B3556d": "agree",
+        "0xBE58b43DF1d991e054F743Cc5571dD7029F3B888": "agree",
+        "0xee46B9Dc4c860149B1d140840284e5374854e746": "agree"
       },
       "expected_failure": false,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
     },
     {
       "step": "S6C_WITHDRAW_VENDOR_A",
-      "tx_hash": "0x83c56a704fcd581d000ef66f380d190ce45525b31fda5a902e573248543ad81e",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x83c56a704fcd581d000ef66f380d190ce45525b31fda5a902e573248543ad81e",
+      "tx_hash": "0x2e71ea2eb860ebce7b934798586262cd62f813740d80d34977818f0573a83257",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x2e71ea2eb860ebce7b934798586262cd62f813740d80d34977818f0573a83257",
       "accepted_seen": true,
       "observed_statuses": [
-        "PROPOSING",
         "COMMITTING",
         "ACCEPTED",
         "FINALIZED"
@@ -764,23 +784,22 @@
       "return_or_error": "50",
       "stderr": null,
       "votes": {
-        "0x19a02f95418A6c76091CDA37C4fc542CA82805c9": "idle",
+        "0x1B490819e040562a5fb40CD64B1c70D4419c38d1": "idle",
         "0x23A15A452F19D1B616276fedC5B8B51d69082959": "agree",
-        "0x813890bC5bEDEB4F5437570962379F04738F18Cb": "agree",
-        "0x88E148Da14d45c5a5DD2DB25E776eBCBCe0Df539": "agree",
-        "0xE74a9088aD4d6dBf3C8cABcC0B91072d2a8c8afa": "agree"
+        "0x534af64FFB6796Bc69aBf4C26c50788F1fFAfe56": "idle",
+        "0x62718FbDf0509A398aA525C152D60c1F7A9d33D3": "agree",
+        "0x6fe9DE3d0adc76D6416A13CD8107aaE49A3CF98F": "agree"
       },
       "expected_failure": false,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
     },
     {
       "step": "S6D_WITHDRAW_VENDOR_C",
-      "tx_hash": "0xfd9ff077ddd4b095f69698590bffbb671d1a45469376f542de3ad976d55fc487",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xfd9ff077ddd4b095f69698590bffbb671d1a45469376f542de3ad976d55fc487",
+      "tx_hash": "0xe7ec77a7927a933254acc218d83d5797116672f0c4d38f867c088b4e28850140",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0xe7ec77a7927a933254acc218d83d5797116672f0c4d38f867c088b4e28850140",
       "accepted_seen": true,
       "observed_statuses": [
-        "PENDING",
-        "COMMITTING",
+        "REVEALING",
         "ACCEPTED",
         "FINALIZED"
       ],
@@ -790,24 +809,21 @@
       "return_or_error": "50",
       "stderr": null,
       "votes": {
-        "0x1B490819e040562a5fb40CD64B1c70D4419c38d1": "agree",
-        "0x22Eda431B7fBC1216baE3b077a78c973a8719c58": "agree",
-        "0x23A15A452F19D1B616276fedC5B8B51d69082959": "agree",
-        "0x813890bC5bEDEB4F5437570962379F04738F18Cb": "agree",
-        "0xe358f855C96d8E7243836cf986eb037175B9467e": "agree"
+        "0x21e4F7ba6Ec0fbf70C019fbc0F9A797c3ed1F969": "idle",
+        "0x23A15A452F19D1B616276fedC5B8B51d69082959": "idle",
+        "0x534af64FFB6796Bc69aBf4C26c50788F1fFAfe56": "agree",
+        "0x5e880d85a70De78dDEf86236d57c42e73F560615": "agree",
+        "0x62718FbDf0509A398aA525C152D60c1F7A9d33D3": "agree"
       },
       "expected_failure": false,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
     },
     {
-      "step": "X9_NO_PENDING_PAYOUT",
-      "tx_hash": "0x434989a436ab7f4da9f7362ad5b61f8c96c86093d5a2414a58e74c396aa00768",
-      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x434989a436ab7f4da9f7362ad5b61f8c96c86093d5a2414a58e74c396aa00768",
+      "step": "X11_NO_PENDING_PAYOUT",
+      "tx_hash": "0x9f60caa27a191ae92927f2baac9e01988b1c88d38fbd2cfca9c32570e026cf6a",
+      "explorer_url": "https://explorer-studio.genlayer.com/tx/0x9f60caa27a191ae92927f2baac9e01988b1c88d38fbd2cfca9c32570e026cf6a",
       "accepted_seen": true,
       "observed_statuses": [
-        "PENDING",
-        "PROPOSING",
-        "COMMITTING",
         "ACCEPTED",
         "FINALIZED"
       ],
@@ -817,14 +833,14 @@
       "return_or_error": "NO_PENDING_PAYOUT",
       "stderr": null,
       "votes": {
-        "0x5e880d85a70De78dDEf86236d57c42e73F560615": "idle",
+        "0x5744305308D62592B7De585e1999c4Ea51E03C29": "agree",
+        "0x5e880d85a70De78dDEf86236d57c42e73F560615": "agree",
+        "0x6DC61b906F74F44612c5545b0b79486133B3556d": "agree",
         "0x6fe9DE3d0adc76D6416A13CD8107aaE49A3CF98F": "agree",
-        "0x725Ab89db6A9DD886Ba71Bc5E63a01070C325bE3": "agree",
-        "0x813890bC5bEDEB4F5437570962379F04738F18Cb": "agree",
         "0xee46B9Dc4c860149B1d140840284e5374854e746": "agree"
       },
       "expected_failure": true,
-      "contract_address": "0xfE39e345c7497B913E6143f629dDfFDc2E26be75"
+      "contract_address": "0x33e1CA90d4ff4E58ECed6De49d40A4ee155356c4"
     }
   ],
   "readbacks": {
@@ -836,16 +852,24 @@
       "total_pending_withdrawals": 0,
       "total_withdrawn": 0
     },
+    "after_S0_deposits_accounting": {
+      "contract_balance": 1150,
+      "total_deposited": 1150,
+      "total_locked_bonds": 0,
+      "total_locked_reserves": 0,
+      "total_pending_withdrawals": 1150,
+      "total_withdrawn": 0
+    },
     "after_S1_tender": {
       "awarded_at": 0,
       "bid_ids": [],
-      "buyer": "0x84340c997bd9dcfd503c297d2006e9d6f77d919c",
+      "buyer": "0x82af55c240f251b7a77d8d2e08f021b9fb0eb7c8",
       "canonical_repo_prefix": "https://raw.githubusercontent.com/Kanezar3/Blind-Tender/",
       "clearing_price": 0,
-      "commit_deadline": 1795434190,
+      "commit_deadline": 1795518403,
       "committed_count": 0,
-      "created_at": 1795430590,
-      "forfeited_ghost_bonds": 0,
+      "created_at": 1795514803,
+      "forfeited_bonds": 0,
       "mandatory_requirements": "Utility Grid-Scale BESS Procurement: usable capacity >= 100 MWh, active UL-9540A thermal-runaway safety certification, and >= 6000 warranted full cycles.",
       "max_bidders": 3,
       "min_bid_bond": 50,
@@ -854,8 +878,8 @@
       "reveal_window_seconds": 3600,
       "revealed_count": 0,
       "status": "COMMIT_OPEN",
-      "tender_id": "bess-live-01",
-      "unwind_deadline": 1795441390,
+      "tender_id": "bess-live-v2",
+      "unwind_deadline": 1795525603,
       "winner_bid_id": "",
       "winner_bidder": ""
     },
@@ -866,129 +890,165 @@
         "bid-b",
         "bid-c"
       ],
-      "buyer": "0x84340c997bd9dcfd503c297d2006e9d6f77d919c",
+      "buyer": "0x82af55c240f251b7a77d8d2e08f021b9fb0eb7c8",
       "canonical_repo_prefix": "https://raw.githubusercontent.com/Kanezar3/Blind-Tender/",
       "clearing_price": 0,
-      "commit_deadline": 1795434190,
+      "commit_deadline": 1795518403,
       "committed_count": 3,
-      "created_at": 1795430590,
-      "forfeited_ghost_bonds": 0,
+      "created_at": 1795514803,
+      "forfeited_bonds": 0,
       "mandatory_requirements": "Utility Grid-Scale BESS Procurement: usable capacity >= 100 MWh, active UL-9540A thermal-runaway safety certification, and >= 6000 warranted full cycles.",
       "max_bidders": 3,
       "min_bid_bond": 50,
       "reserve_price": 1000,
-      "reveal_deadline": 1795434389,
+      "reveal_deadline": 1795518680,
       "reveal_window_seconds": 3600,
       "revealed_count": 0,
       "status": "REVEAL_OPEN",
-      "tender_id": "bess-live-01",
-      "unwind_deadline": 1795437989,
+      "tender_id": "bess-live-v2",
+      "unwind_deadline": 1795522280,
+      "winner_bid_id": "",
+      "winner_bidder": ""
+    },
+    "after_S3C_tender": {
+      "awarded_at": 0,
+      "bid_ids": [
+        "bid-a",
+        "bid-b",
+        "bid-c"
+      ],
+      "buyer": "0x82af55c240f251b7a77d8d2e08f021b9fb0eb7c8",
+      "canonical_repo_prefix": "https://raw.githubusercontent.com/Kanezar3/Blind-Tender/",
+      "clearing_price": 0,
+      "commit_deadline": 1795518403,
+      "committed_count": 3,
+      "created_at": 1795514803,
+      "forfeited_bonds": 0,
+      "mandatory_requirements": "Utility Grid-Scale BESS Procurement: usable capacity >= 100 MWh, active UL-9540A thermal-runaway safety certification, and >= 6000 warranted full cycles.",
+      "max_bidders": 3,
+      "min_bid_bond": 50,
+      "reserve_price": 1000,
+      "reveal_deadline": 1795518680,
+      "reveal_window_seconds": 3600,
+      "revealed_count": 3,
+      "status": "REVEAL_OPEN",
+      "tender_id": "bess-live-v2",
+      "unwind_deadline": 1795522280,
       "winner_bid_id": "",
       "winner_bidder": ""
     },
     "after_S4A_bid_a": {
       "bid_bond": 50,
       "bid_id": "bid-a",
-      "bidder": "0x9b359dcd3e287ace392b92882d670c597a691dfc",
-      "commit_hash": "2bf32db993706075e96043b599840f14905451662b2528f6d49bfc65061993aa",
-      "committed_at": 1795430711,
-      "content_hash": "2fbe97eddcf2b5e3161e411626ea6768592e519e6d2555e77cb1ba7f72bde659",
-      "dossier_url": "https://raw.githubusercontent.com/Kanezar3/Blind-Tender/2fbb47405ace9afc0eda74f86c53a0fa48b3f207/evidence/bid_a_lowball_no_cert.json",
+      "bidder": "0x5b5bea56f39828a79560b1663588b0301df065dd",
+      "commit_hash": "5e739032a1bba0cd677daec18e44d8672101b0ca91f1477bcb00914558f718ec",
+      "committed_at": 1795514966,
+      "content_hash": "55d9926c6e42cef63eb73969342bb2eb61bdf260274c6e351c94f6b20e4bfbc2",
+      "dossier_url": "https://raw.githubusercontent.com/Kanezar3/Blind-Tender/780698d213d0673c148210a0a3766574bf3e6eb2/evidence/bid_a_lowball_no_cert.txt",
       "eval_attempts": 1,
-      "eval_reason": "SAFETY_CERT_MISSING",
+      "eval_reason": "COMPLIANCE_CERT_MISSING",
       "eval_verdict": "DISQUALIFIED",
-      "evaluated_at": 1795431026,
-      "evidence_digest": "2fbe97eddcf2b5e3161e411626ea6768592e519e6d2555e77cb1ba7f72bde659",
+      "evaluated_at": 1795515800,
+      "evidence_digest": "55d9926c6e42cef63eb73969342bb2eb61bdf260274c6e351c94f6b20e4bfbc2",
       "price": 417,
-      "revealed_at": 1795430906,
-      "spec_summary": "105 MWh LFP pack, 6500 cycles, UL-9540A testing scheduled Q3",
+      "revealed_at": 1795515444,
       "status": "REVEALED",
-      "tender_id": "bess-live-01"
+      "tender_id": "bess-live-v2"
     },
     "after_S4B_bid_b": {
       "bid_bond": 50,
       "bid_id": "bid-b",
-      "bidder": "0x3fcb423f07f2e8f0bd5da5191ed76f853b8897ca",
-      "commit_hash": "4660591bc81a4b82118d114fa65c9e29f9d897d9ee5832fd27fe5e726306e850",
-      "committed_at": 1795430750,
-      "content_hash": "bcdd83642b763d0a5090075a41dfe72ce106ba482d2ba7eb6f35effc8339a31b",
-      "dossier_url": "https://raw.githubusercontent.com/Kanezar3/Blind-Tender/2fbb47405ace9afc0eda74f86c53a0fa48b3f207/evidence/bid_b_compliant_winner.json",
+      "bidder": "0xd20a86325b417266a091c19b4c59fa86cbcb532e",
+      "commit_hash": "310bda2a371cb3047e8b1d5a1396a48f01f88814ec143eb5fb73e741ff6ef31b",
+      "committed_at": 1795515024,
+      "content_hash": "c5e88ffa6efefb2a80917b2d6d46654013176d4f949e81d0d2165978f9cc6c50",
+      "dossier_url": "https://raw.githubusercontent.com/Kanezar3/Blind-Tender/780698d213d0673c148210a0a3766574bf3e6eb2/evidence/bid_b_compliant_winner.txt",
       "eval_attempts": 1,
       "eval_reason": "ALL_REQUIREMENTS_MET",
       "eval_verdict": "ELIGIBLE",
-      "evaluated_at": 1795431097,
-      "evidence_digest": "bcdd83642b763d0a5090075a41dfe72ce106ba482d2ba7eb6f35effc8339a31b",
+      "evaluated_at": 1795515874,
+      "evidence_digest": "c5e88ffa6efefb2a80917b2d6d46654013176d4f949e81d0d2165978f9cc6c50",
       "price": 673,
-      "revealed_at": 1795430944,
-      "spec_summary": "120 MWh LFP pack, active UL-9540A certification, 7200 cycles",
+      "revealed_at": 1795515585,
       "status": "REVEALED",
-      "tender_id": "bess-live-01"
+      "tender_id": "bess-live-v2"
     },
     "after_S4C_bid_c": {
       "bid_bond": 50,
       "bid_id": "bid-c",
-      "bidder": "0xfee22564898fa802a96ad86aa6062e79e6db0c9f",
-      "commit_hash": "17498f7b43223dcc4663f7858a9fc6134a01b757e838baae68375fc945a4284b",
-      "committed_at": 1795430789,
-      "content_hash": "b82bff35ecc3ad458211fc56d8065be3efe128870af628d249721229809f5b00",
-      "dossier_url": "https://raw.githubusercontent.com/Kanezar3/Blind-Tender/2fbb47405ace9afc0eda74f86c53a0fa48b3f207/evidence/bid_c_compliant_runnerup.json",
+      "bidder": "0x868635fbf3b49529b308381b5076401ba98b00db",
+      "commit_hash": "882116c4b6cc1a21a0f03c0fea75ddad21da091b718df9adeb850f2e63a5d003",
+      "committed_at": 1795515080,
+      "content_hash": "eb35d18e5d2bbc4c2f526f75d815fd76eaee094333a302393dbdf6c778ef48bf",
+      "dossier_url": "https://raw.githubusercontent.com/Kanezar3/Blind-Tender/780698d213d0673c148210a0a3766574bf3e6eb2/evidence/bid_c_compliant_runnerup.txt",
       "eval_attempts": 1,
       "eval_reason": "ALL_REQUIREMENTS_MET",
       "eval_verdict": "ELIGIBLE",
-      "evaluated_at": 1795431148,
-      "evidence_digest": "b82bff35ecc3ad458211fc56d8065be3efe128870af628d249721229809f5b00",
+      "evaluated_at": 1795515952,
+      "evidence_digest": "eb35d18e5d2bbc4c2f526f75d815fd76eaee094333a302393dbdf6c778ef48bf",
       "price": 829,
-      "revealed_at": 1795430985,
-      "spec_summary": "115 MWh LFP pack, active UL-9540A certification, 6800 cycles",
+      "revealed_at": 1795515670,
       "status": "REVEALED",
-      "tender_id": "bess-live-01"
+      "tender_id": "bess-live-v2"
     },
     "after_S5_tender": {
-      "awarded_at": 1795431235,
+      "awarded_at": 1795516064,
       "bid_ids": [
         "bid-a",
         "bid-b",
         "bid-c"
       ],
-      "buyer": "0x84340c997bd9dcfd503c297d2006e9d6f77d919c",
+      "buyer": "0x82af55c240f251b7a77d8d2e08f021b9fb0eb7c8",
       "canonical_repo_prefix": "https://raw.githubusercontent.com/Kanezar3/Blind-Tender/",
       "clearing_price": 829,
-      "commit_deadline": 1795434190,
+      "commit_deadline": 1795518403,
       "committed_count": 3,
-      "created_at": 1795430590,
-      "forfeited_ghost_bonds": 0,
+      "created_at": 1795514803,
+      "forfeited_bonds": 0,
       "mandatory_requirements": "Utility Grid-Scale BESS Procurement: usable capacity >= 100 MWh, active UL-9540A thermal-runaway safety certification, and >= 6000 warranted full cycles.",
       "max_bidders": 3,
       "min_bid_bond": 50,
       "reserve_price": 1000,
-      "reveal_deadline": 1795434389,
+      "reveal_deadline": 1795518680,
       "reveal_window_seconds": 3600,
       "revealed_count": 3,
       "status": "AWARDED",
-      "tender_id": "bess-live-01",
-      "unwind_deadline": 1795437989,
+      "tender_id": "bess-live-v2",
+      "unwind_deadline": 1795522280,
       "winner_bid_id": "bid-b",
-      "winner_bidder": "0x3fcb423f07f2e8f0bd5da5191ed76f853b8897ca"
+      "winner_bidder": "0xd20a86325b417266a091c19b4c59fa86cbcb532e"
     },
-    "after_S6A_WITHDRAW_VENDOR_B_eoa": {
-      "before_wei": "99950",
-      "after_wei": "100829",
-      "delta_wei": "879"
+    "after_S6A_WITHDRAW_VENDOR_B_transfer": {
+      "expected_payout_wei": "879",
+      "contract_balance_before_wei": "1150",
+      "contract_balance_after_wei": "271",
+      "contract_disbursed_wei": "879",
+      "eoa_before_wei": "9449603999993014",
+      "eoa_after_wei": "9370751999993070"
     },
-    "after_S6B_WITHDRAW_BUYER_eoa": {
-      "before_wei": "99000",
-      "after_wei": "99171",
-      "delta_wei": "171"
+    "after_S6B_WITHDRAW_BUYER_transfer": {
+      "expected_payout_wei": "171",
+      "contract_balance_before_wei": "271",
+      "contract_balance_after_wei": "100",
+      "contract_disbursed_wei": "171",
+      "eoa_before_wei": "9606859999994180",
+      "eoa_after_wei": "9528007999993293"
     },
-    "after_S6C_WITHDRAW_VENDOR_A_eoa": {
-      "before_wei": "99950",
-      "after_wei": "100000",
-      "delta_wei": "50"
+    "after_S6C_WITHDRAW_VENDOR_A_transfer": {
+      "expected_payout_wei": "50",
+      "contract_balance_before_wei": "100",
+      "contract_balance_after_wei": "50",
+      "contract_disbursed_wei": "50",
+      "eoa_before_wei": "9685487999995953",
+      "eoa_after_wei": "9606635999995180"
     },
-    "after_S6D_WITHDRAW_VENDOR_C_eoa": {
-      "before_wei": "99950",
-      "after_wei": "100000",
-      "delta_wei": "50"
+    "after_S6D_WITHDRAW_VENDOR_C_transfer": {
+      "expected_payout_wei": "50",
+      "contract_balance_before_wei": "50",
+      "contract_balance_after_wei": "0",
+      "contract_disbursed_wei": "50",
+      "eoa_before_wei": "9764115999997011",
+      "eoa_after_wei": "9685263999996238"
     },
     "final_accounting": {
       "contract_balance": 0,

@@ -4,6 +4,6 @@
   "private": true,
   "description": "StudioNet deployment, runner probe, and live end-to-end verification for BlindTender.",
   "dependencies": {
-    "genlayer-js": "1.2.0"
+    "genlayer-js": "2.0.0"
   }
 }

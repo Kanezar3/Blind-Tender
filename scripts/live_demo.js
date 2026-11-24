@@ -237,6 +237,7 @@ async function sendAndVerify(
   expectFailure = false,
   valueWei = 0n,
   expectedErrSubstr = null,
+  txFees = undefined,
   retries = 5
 ) {
   let hash = null;
@@ -248,6 +249,7 @@ async function sendAndVerify(
         functionName,
         args,
         value: valueWei,
+        fees: txFees,
       });
       break;
     } catch (err) {
@@ -317,12 +319,16 @@ async function main() {
     const funding = {};
     for (const role of ROLE_NAMES) {
       const addr = roles[role].address;
-      await rpcCall("sim_fundAccount", [addr, 100000]);
+      await rpcCall("sim_fundAccount", [addr, 10000000000000000]);
       funding[role] = await getBalanceWei(addr);
       console.log(`Funded ${role} (${addr}) -> balance=${funding[role]} wei`);
     }
     state = saveState({ funded: true, initialBalances: funding });
   }
+
+  const feeConfig = await rpcCall("sim_getFeeConfig", []);
+  const txFees = feeConfig?.enabled ? feeConfig.defaultFees : undefined;
+  console.log("StudioNet fees enabled:", Boolean(feeConfig?.enabled), "feeValue:", txFees?.feeValue || "0");
 
   console.log("Deploy commit:", commitSha);
   console.log("Contract blob:", blobSha);
@@ -332,6 +338,7 @@ async function main() {
     const deployHash = await roles.buyer.client.deployContract({
       code: contractCode,
       args: [],
+      fees: txFees,
     });
     const deployTx = await waitForFinalized(roles.buyer.client, deployHash, "DEPLOY", false);
     const contractAddress = deployTx.contract_address;
@@ -384,7 +391,7 @@ async function main() {
       runner_probe: probeData,
       toolchain: {
         node: process.version,
-        "genlayer-js": "1.2.0",
+        "genlayer-js": "2.0.0",
       },
       constructor_args: [],
       deploy_tx: state.deployTx,
@@ -417,15 +424,17 @@ async function main() {
     writeManifests();
   }
 
+  const tx = (client, fn, args, label, expectFailure = false, valueWei = 0n, expectedErrSubstr = null) =>
+    sendAndVerify(client, contractAddress, fn, args, label, expectFailure, valueWei, expectedErrSubstr, txFees);
+
   const MANDATORY_REQS =
     "Utility Grid-Scale BESS Procurement: usable capacity >= 100 MWh, active UL-9540A thermal-runaway safety certification, and >= 6000 warranted full cycles.";
   const TENDER_ID = "bess-live-v2";
 
   // X1: Open tender with zero escrow balance -> INSUFFICIENT_ESCROW_BALANCE, balance stays 0
   await runStep("X1_INSUFFICIENT_ESCROW_BALANCE", async () => {
-    const rec = await sendAndVerify(
+    const rec = await tx(
       roles.buyer.client,
-      contractAddress,
       "open_tender",
       [TENDER_ID, 1000, 3, 3600, 3600, MANDATORY_REQS, REPO_PREFIX],
       "X1_INSUFFICIENT_ESCROW_BALANCE",
@@ -444,18 +453,17 @@ async function main() {
 
   // S0: Buyer deposits 1000 wei; Vendors A, B, C each deposit 50 wei
   await runStep("S0_DEPOSIT_BUYER", async () =>
-    sendAndVerify(roles.buyer.client, contractAddress, "deposit_escrow", [], "S0_DEPOSIT_BUYER", false, 1000n)
+    tx(roles.buyer.client, "deposit_escrow", [], "S0_DEPOSIT_BUYER", false, 1000n)
   );
   await runStep("S0A_DEPOSIT_VENDOR_A", async () =>
-    sendAndVerify(roles.vendorA.client, contractAddress, "deposit_escrow", [], "S0A_DEPOSIT_VENDOR_A", false, 50n)
+    tx(roles.vendorA.client, "deposit_escrow", [], "S0A_DEPOSIT_VENDOR_A", false, 50n)
   );
   await runStep("S0B_DEPOSIT_VENDOR_B", async () =>
-    sendAndVerify(roles.vendorB.client, contractAddress, "deposit_escrow", [], "S0B_DEPOSIT_VENDOR_B", false, 50n)
+    tx(roles.vendorB.client, "deposit_escrow", [], "S0B_DEPOSIT_VENDOR_B", false, 50n)
   );
   await runStep("S0C_DEPOSIT_VENDOR_C", async () => {
-    const rec = await sendAndVerify(
+    const rec = await tx(
       roles.vendorC.client,
-      contractAddress,
       "deposit_escrow",
       [],
       "S0C_DEPOSIT_VENDOR_C",
@@ -470,9 +478,8 @@ async function main() {
 
   // S1: Buyer opens sealed-bid Vickrey tender (reserve=1000, min_bond=50, max_bidders=3)
   await runStep("S1_OPEN_TENDER", async () => {
-    const rec = await sendAndVerify(
+    const rec = await tx(
       roles.buyer.client,
-      contractAddress,
       "open_tender",
       [TENDER_ID, 1000, 3, 3600, 3600, MANDATORY_REQS, REPO_PREFIX],
       "S1_OPEN_TENDER",
@@ -490,9 +497,8 @@ async function main() {
 
   // X2: Insufficient bid bond (49 < 50) rejected
   await runStep("X2_INSUFFICIENT_BID_BOND", async () =>
-    sendAndVerify(
+    tx(
       roles.vendorA.client,
-      contractAddress,
       "commit_bid",
       [TENDER_ID, "bid-a", 49, hA],
       "X2_INSUFFICIENT_BID_BOND",
@@ -504,9 +510,8 @@ async function main() {
 
   // X3: Buyer cannot bid on own tender
   await runStep("X3_BUYER_CANNOT_BID", async () =>
-    sendAndVerify(
+    tx(
       roles.buyer.client,
-      contractAddress,
       "commit_bid",
       [TENDER_ID, "bid-self", 50, hA],
       "X3_BUYER_CANNOT_BID",
@@ -518,15 +523,14 @@ async function main() {
 
   // S2A/S2B/S2C: Three vendors commit sealed (price + dossier_hash + salt) hashes
   await runStep("S2A_COMMIT_BID_A", async () =>
-    sendAndVerify(roles.vendorA.client, contractAddress, "commit_bid", [TENDER_ID, "bid-a", 50, hA], "S2A_COMMIT_BID_A", false)
+    tx(roles.vendorA.client, "commit_bid", [TENDER_ID, "bid-a", 50, hA], "S2A_COMMIT_BID_A", false)
   );
   await runStep("S2B_COMMIT_BID_B", async () =>
-    sendAndVerify(roles.vendorB.client, contractAddress, "commit_bid", [TENDER_ID, "bid-b", 50, hB], "S2B_COMMIT_BID_B", false)
+    tx(roles.vendorB.client, "commit_bid", [TENDER_ID, "bid-b", 50, hB], "S2B_COMMIT_BID_B", false)
   );
   await runStep("S2C_COMMIT_BID_C", async () => {
-    const rec = await sendAndVerify(
+    const rec = await tx(
       roles.vendorC.client,
-      contractAddress,
       "commit_bid",
       [TENDER_ID, "bid-c", 50, hC],
       "S2C_COMMIT_BID_C",
@@ -543,9 +547,8 @@ async function main() {
 
   // X4: Unauthorized attacker trying to reveal VendorB's bid -> UNAUTHORIZED_CALLER
   await runStep("X4_UNAUTHORIZED_REVEAL", async () =>
-    sendAndVerify(
+    tx(
       roles.attacker.client,
-      contractAddress,
       "reveal_bid",
       [TENDER_ID, "bid-b", 673, "salt-live-b", evidenceMeta.bid_b.raw_url, evidenceMeta.bid_b.sha256],
       "X4_UNAUTHORIZED_REVEAL",
@@ -557,9 +560,8 @@ async function main() {
 
   // X5: Tampered reveal price -> COMMITMENT_MISMATCH
   await runStep("X5_COMMITMENT_MISMATCH_PRICE", async () =>
-    sendAndVerify(
+    tx(
       roles.vendorB.client,
-      contractAddress,
       "reveal_bid",
       [TENDER_ID, "bid-b", 600, "salt-live-b", evidenceMeta.bid_b.raw_url, evidenceMeta.bid_b.sha256],
       "X5_COMMITMENT_MISMATCH_PRICE",
@@ -571,9 +573,8 @@ async function main() {
 
   // X6: Post-reveal dossier swap (swapping in non-compliant dossier A) -> COMMITMENT_MISMATCH
   await runStep("X6_COMMITMENT_MISMATCH_DOSSIER", async () =>
-    sendAndVerify(
+    tx(
       roles.vendorB.client,
-      contractAddress,
       "reveal_bid",
       [TENDER_ID, "bid-b", 673, "salt-live-b", evidenceMeta.bid_a.raw_url, evidenceMeta.bid_a.sha256],
       "X6_COMMITMENT_MISMATCH_DOSSIER",
@@ -585,9 +586,8 @@ async function main() {
 
   // X7: Mutable /main/ branch URL -> INVALID_EVIDENCE_URL
   await runStep("X7_UNPINNED_MAIN_URL", async () =>
-    sendAndVerify(
+    tx(
       roles.vendorB.client,
-      contractAddress,
       "reveal_bid",
       [TENDER_ID, "bid-b", 673, "salt-live-b", `${REPO_PREFIX}main/evidence/bid_b_compliant_winner.txt`, evidenceMeta.bid_b.sha256],
       "X7_UNPINNED_MAIN_URL",
@@ -599,9 +599,8 @@ async function main() {
 
   // X8: Foreign repository URL -> REPO_PREFIX_MISMATCH
   await runStep("X8_FOREIGN_REPO_URL", async () =>
-    sendAndVerify(
+    tx(
       roles.vendorB.client,
-      contractAddress,
       "reveal_bid",
       [
         TENDER_ID,
@@ -620,9 +619,8 @@ async function main() {
 
   // S3A/S3B/S3C: Verified sealed-bid reveals with commit-pinned unstructured prose dossiers
   await runStep("S3A_REVEAL_BID_A", async () =>
-    sendAndVerify(
+    tx(
       roles.vendorA.client,
-      contractAddress,
       "reveal_bid",
       [TENDER_ID, "bid-a", 417, "salt-live-a", evidenceMeta.bid_a.raw_url, evidenceMeta.bid_a.sha256],
       "S3A_REVEAL_BID_A",
@@ -630,9 +628,8 @@ async function main() {
     )
   );
   await runStep("S3B_REVEAL_BID_B", async () =>
-    sendAndVerify(
+    tx(
       roles.vendorB.client,
-      contractAddress,
       "reveal_bid",
       [TENDER_ID, "bid-b", 673, "salt-live-b", evidenceMeta.bid_b.raw_url, evidenceMeta.bid_b.sha256],
       "S3B_REVEAL_BID_B",
@@ -640,9 +637,8 @@ async function main() {
     )
   );
   await runStep("S3C_REVEAL_BID_C", async () => {
-    const rec = await sendAndVerify(
+    const rec = await tx(
       roles.vendorC.client,
-      contractAddress,
       "reveal_bid",
       [TENDER_ID, "bid-c", 829, "salt-live-c", evidenceMeta.bid_c.raw_url, evidenceMeta.bid_c.sha256],
       "S3C_REVEAL_BID_C",
@@ -656,9 +652,8 @@ async function main() {
 
   // X9: Premature award_tender before price-blind evaluations finish -> UNEVALUATED_BID_EXISTS
   await runStep("X9_PREMATURE_AWARD", async () =>
-    sendAndVerify(
+    tx(
       roles.attacker.client,
-      contractAddress,
       "award_tender",
       [TENDER_ID],
       "X9_PREMATURE_AWARD",
@@ -670,14 +665,7 @@ async function main() {
 
   // S4A/S4B/S4C: Live Price-Blind Consensus Eligibility Evaluation over unstructured prose
   await runStep("S4A_EVAL_BID_A", async () => {
-    const rec = await sendAndVerify(
-      roles.auditor.client,
-      contractAddress,
-      "evaluate_bid",
-      [TENDER_ID, "bid-a"],
-      "S4A_EVAL_BID_A",
-      false
-    );
+    const rec = await tx(roles.auditor.client, "evaluate_bid", [TENDER_ID, "bid-a"], "S4A_EVAL_BID_A", false);
     readbacks.after_S4A_bid_a = JSON.parse(
       await readWithRetry(roles.buyer.client, contractAddress, "get_bid", [TENDER_ID, "bid-a"])
     );
@@ -691,14 +679,7 @@ async function main() {
   });
 
   await runStep("S4B_EVAL_BID_B", async () => {
-    const rec = await sendAndVerify(
-      roles.auditor.client,
-      contractAddress,
-      "evaluate_bid",
-      [TENDER_ID, "bid-b"],
-      "S4B_EVAL_BID_B",
-      false
-    );
+    const rec = await tx(roles.auditor.client, "evaluate_bid", [TENDER_ID, "bid-b"], "S4B_EVAL_BID_B", false);
     readbacks.after_S4B_bid_b = JSON.parse(
       await readWithRetry(roles.buyer.client, contractAddress, "get_bid", [TENDER_ID, "bid-b"])
     );
@@ -712,14 +693,7 @@ async function main() {
   });
 
   await runStep("S4C_EVAL_BID_C", async () => {
-    const rec = await sendAndVerify(
-      roles.auditor.client,
-      contractAddress,
-      "evaluate_bid",
-      [TENDER_ID, "bid-c"],
-      "S4C_EVAL_BID_C",
-      false
-    );
+    const rec = await tx(roles.auditor.client, "evaluate_bid", [TENDER_ID, "bid-c"], "S4C_EVAL_BID_C", false);
     readbacks.after_S4C_bid_c = JSON.parse(
       await readWithRetry(roles.buyer.client, contractAddress, "get_bid", [TENDER_ID, "bid-c"])
     );
@@ -734,9 +708,8 @@ async function main() {
 
   // X10: Replay evaluation on already-concluded bid blocked -> BID_ALREADY_CONCLUDED
   await runStep("X10_REPLAY_CONCLUDED_EVAL", async () =>
-    sendAndVerify(
+    tx(
       roles.attacker.client,
-      contractAddress,
       "evaluate_bid",
       [TENDER_ID, "bid-a"],
       "X10_REPLAY_CONCLUDED_EVAL",
@@ -748,14 +721,7 @@ async function main() {
 
   // S5: Deterministic Vickrey Second-Price Award (bid-b wins at 829; lowball 417 ignored)
   await runStep("S5_AWARD_TENDER", async () => {
-    const rec = await sendAndVerify(
-      roles.auditor.client,
-      contractAddress,
-      "award_tender",
-      [TENDER_ID],
-      "S5_AWARD_TENDER",
-      false
-    );
+    const rec = await tx(roles.auditor.client, "award_tender", [TENDER_ID], "S5_AWARD_TENDER", false);
     readbacks.after_S5_tender = JSON.parse(
       await readWithRetry(roles.buyer.client, contractAddress, "get_tender", [TENDER_ID])
     );
@@ -770,48 +736,34 @@ async function main() {
   });
 
   // S6A-S6D: Pull native wei payouts via _EoaRecipient.emit_transfer
-  for (const [stepName, roleKey, expectedDelta] of [
-    ["S6A_WITHDRAW_VENDOR_B", "vendorB", 879n],
-    ["S6B_WITHDRAW_BUYER", "buyer", 171n],
-    ["S6C_WITHDRAW_VENDOR_A", "vendorA", 50n],
-    ["S6D_WITHDRAW_VENDOR_C", "vendorC", 50n],
+  for (const [stepName, roleKey, expectedPayout] of [
+    ["S6A_WITHDRAW_VENDOR_B", "vendorB", 879],
+    ["S6B_WITHDRAW_BUYER", "buyer", 171],
+    ["S6C_WITHDRAW_VENDOR_A", "vendorA", 50],
+    ["S6D_WITHDRAW_VENDOR_C", "vendorC", 50],
   ]) {
     await runStep(stepName, async () => {
+      const contractBefore = await getBalanceWei(contractAddress);
       const balBefore = await getBalanceWei(roles[roleKey].address);
-      const rec = await sendAndVerify(
-        roles[roleKey].client,
-        contractAddress,
-        "withdraw_payout",
-        [],
-        stepName,
-        false
-      );
+      const rec = await tx(roles[roleKey].client, "withdraw_payout", [], stepName, false);
+      const contractAfter = await getBalanceWei(contractAddress);
       const balAfter = await getBalanceWei(roles[roleKey].address);
-      const delta = BigInt(balAfter) - BigInt(balBefore);
-      readbacks[`after_${stepName}_eoa`] = {
-        before_wei: balBefore,
-        after_wei: balAfter,
-        delta_wei: delta.toString(),
+      const contractDelta = (BigInt(contractBefore) - BigInt(contractAfter)).toString();
+      readbacks[`after_${stepName}_transfer`] = {
+        expected_payout_wei: String(expectedPayout),
+        contract_balance_before_wei: contractBefore,
+        contract_balance_after_wei: contractAfter,
+        contract_disbursed_wei: contractDelta,
+        eoa_before_wei: balBefore,
+        eoa_after_wei: balAfter,
       };
-      if (delta !== expectedDelta) {
-        console.warn(`  [Notice ${stepName}] EOA delta=${delta} vs expected=${expectedDelta}`);
-      }
       return rec;
     });
   }
 
   // X11: Attacker with 0 pending payout cannot withdraw
   await runStep("X11_NO_PENDING_PAYOUT", async () =>
-    sendAndVerify(
-      roles.attacker.client,
-      contractAddress,
-      "withdraw_payout",
-      [],
-      "X11_NO_PENDING_PAYOUT",
-      true,
-      0n,
-      "NO_PENDING_PAYOUT"
-    )
+    tx(roles.attacker.client, "withdraw_payout", [], "X11_NO_PENDING_PAYOUT", true, 0n, "NO_PENDING_PAYOUT")
   );
 
   // Final accounting readback
